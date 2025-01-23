@@ -1,0 +1,4 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+E:/carrer_saas/backend/onnx/model.onnx filter=lfs diff=lfs merge=lfs -text
+backend/onnx/model.onnx filter=lfs diff=lfs merge=lfs -text
