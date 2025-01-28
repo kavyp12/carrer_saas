@@ -1,0 +1,302 @@
+2025-01-24 13:48:18,754 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://192.168.0.126:3001
+2025-01-24 13:48:18,755 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-24 13:48:18,776 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-24 13:48:20,824 - WARNING:  * Debugger is active!
+2025-01-24 13:48:20,829 - INFO:  * Debugger PIN: 120-442-373
+2025-01-24 13:48:30,216 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-24 13:48:30,216 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-24 13:48:31,028 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-24 13:48:32,697 - WARNING:  * Debugger is active!
+2025-01-24 13:48:32,700 - INFO:  * Debugger PIN: 120-442-373
+2025-01-24 13:48:51,510 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-24 13:48:51,514 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-24 13:48:51,901 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-24 13:48:53,465 - WARNING:  * Debugger is active!
+2025-01-24 13:48:53,467 - INFO:  * Debugger PIN: 120-442-373
+2025-01-24 13:52:24,666 - INFO: 127.0.0.1 - - [24/Jan/2025 13:52:24] "OPTIONS /api/generate-report HTTP/1.1" 200 -
+2025-01-24 13:52:27,696 - WARNING: Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: timed out
+2025-01-24 13:52:31,611 - WARNING: Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: timed out
+2025-01-24 13:52:36,616 - WARNING: Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: timed out
+2025-01-24 13:52:36,618 - WARNING: Authentication failed using Compute Engine authentication due to unavailable metadata server.
+2025-01-24 13:52:36,619 - ERROR: Comprehensive Report Generation Failed: 
+  No API_KEY or ADC found. Please either:
+    - Set the `GOOGLE_API_KEY` environment variable.
+    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
+    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
+2025-01-24 13:52:36,621 - INFO: 127.0.0.1 - - [24/Jan/2025 13:52:36] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-24 13:53:30,186 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-24 13:53:30,188 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-24 13:53:31,278 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-24 13:53:33,272 - WARNING:  * Debugger is active!
+2025-01-24 13:53:33,276 - INFO:  * Debugger PIN: 120-442-373
+2025-01-24 13:53:35,977 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-24 13:53:35,979 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-24 13:53:35,979 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-24 13:53:36,481 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-24 13:53:38,054 - WARNING:  * Debugger is active!
+2025-01-24 13:53:38,057 - INFO:  * Debugger PIN: 120-442-373
+2025-01-24 13:53:41,502 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-24 13:53:41,503 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-24 13:53:42,224 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-24 13:53:43,973 - WARNING:  * Debugger is active!
+2025-01-24 13:53:43,976 - INFO:  * Debugger PIN: 120-442-373
+2025-01-24 13:53:48,538 - INFO: 127.0.0.1 - - [24/Jan/2025 13:53:48] "OPTIONS /api/generate-report HTTP/1.1" 200 -
+2025-01-24 13:53:48,541 - ERROR: API Configuration Error: No API key found. Please set GEMINI_API_KEY environment variable.
+2025-01-24 13:53:48,542 - ERROR: API Report Generation Error: No API key found. Please set GEMINI_API_KEY environment variable.
+2025-01-24 13:53:48,542 - INFO: 127.0.0.1 - - [24/Jan/2025 13:53:48] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-24 13:56:12,843 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://192.168.0.126:3001
+2025-01-24 13:56:12,844 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-24 13:56:12,854 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-24 13:56:14,576 - WARNING:  * Debugger is active!
+2025-01-24 13:56:14,579 - INFO:  * Debugger PIN: 120-442-373
+2025-01-24 13:59:27,816 - INFO: 127.0.0.1 - - [24/Jan/2025 13:59:27] "OPTIONS /api/generate-report HTTP/1.1" 200 -
+2025-01-24 13:59:27,824 - INFO: Gemini API successfully configured
+2025-01-24 13:59:39,358 - INFO: Report generated successfully
+2025-01-24 13:59:39,360 - INFO: 127.0.0.1 - - [24/Jan/2025 13:59:39] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-25 14:54:49,297 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://192.168.180.245:3001
+2025-01-25 14:54:49,298 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-25 14:54:49,312 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-25 14:54:50,748 - WARNING:  * Debugger is active!
+2025-01-25 14:54:50,751 - INFO:  * Debugger PIN: 120-442-373
+2025-01-25 15:05:34,344 - INFO: 127.0.0.1 - - [25/Jan/2025 15:05:34] "OPTIONS /api/generate-report HTTP/1.1" 200 -
+2025-01-25 15:05:34,347 - INFO: 127.0.0.1 - - [25/Jan/2025 15:05:34] "OPTIONS /api/generate-report HTTP/1.1" 200 -
+2025-01-25 15:05:34,348 - INFO: Gemini API successfully configured
+2025-01-25 15:05:34,352 - INFO: Gemini API successfully configured
+2025-01-25 15:06:20,443 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-25 15:06:20,651 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-25 15:06:20,652 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-25 15:06:20,653 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-25 15:06:20,894 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-25 15:06:20,896 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-25 15:06:23,506 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-25 15:06:25,179 - WARNING:  * Debugger is active!
+2025-01-25 15:06:25,182 - INFO:  * Debugger PIN: 120-442-373
+2025-01-25 15:06:26,647 - INFO: 127.0.0.1 - - [25/Jan/2025 15:06:26] "OPTIONS /api/generate-report HTTP/1.1" 200 -
+2025-01-25 15:06:26,650 - INFO: 127.0.0.1 - - [25/Jan/2025 15:06:26] "OPTIONS /api/generate-report HTTP/1.1" 200 -
+2025-01-25 15:06:26,651 - INFO: Gemini API successfully configured
+2025-01-25 15:06:26,655 - INFO: Gemini API successfully configured
+2025-01-25 15:06:29,634 - ERROR: Topic Report Generation Error for personal_traits: 429 Resource has been exhausted (e.g. check quota).
+2025-01-25 15:06:30,747 - ERROR: Topic Report Generation Error for skills_excel: 429 Resource has been exhausted (e.g. check quota).
+2025-01-25 15:06:30,753 - ERROR: Topic Report Generation Error for personal_traits: 429 Resource has been exhausted (e.g. check quota).
+2025-01-25 15:06:32,081 - ERROR: Topic Report Generation Error for top_careers: 429 Resource has been exhausted (e.g. check quota).
+2025-01-25 15:06:32,917 - ERROR: Topic Report Generation Error for career_intro: 429 Resource has been exhausted (e.g. check quota).
+2025-01-25 15:06:33,817 - ERROR: Topic Report Generation Error for career_roadmap: 429 Resource has been exhausted (e.g. check quota).
+2025-01-25 15:06:39,160 - INFO: 127.0.0.1 - - [25/Jan/2025 15:06:39] "OPTIONS /api/generate-report HTTP/1.1" 200 -
+2025-01-25 15:06:39,162 - INFO: 127.0.0.1 - - [25/Jan/2025 15:06:39] "OPTIONS /api/generate-report HTTP/1.1" 200 -
+2025-01-25 15:06:39,168 - INFO: Gemini API successfully configured
+2025-01-25 15:06:39,171 - INFO: Gemini API successfully configured
+2025-01-25 15:06:42,097 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-25 15:06:42,098 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-25 15:06:44,484 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-25 15:06:45,952 - WARNING:  * Debugger is active!
+2025-01-25 15:06:45,954 - INFO:  * Debugger PIN: 120-442-373
+2025-01-25 15:09:25,061 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-25 15:09:25,061 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-25 15:09:25,596 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-25 15:12:54,038 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://192.168.180.245:3001
+2025-01-25 15:12:54,039 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-25 15:12:54,049 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-25 15:12:55,653 - WARNING:  * Debugger is active!
+2025-01-25 15:12:55,655 - INFO:  * Debugger PIN: 120-442-373
+2025-01-25 15:13:12,635 - INFO: Gemini API successfully configured
+2025-01-25 15:14:21,486 - INFO: 127.0.0.1 - - [25/Jan/2025 15:14:21] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-26 11:23:14,294 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://192.168.0.126:3001
+2025-01-26 11:23:14,295 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-26 11:23:14,321 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-26 11:23:19,701 - WARNING:  * Debugger is active!
+2025-01-26 11:23:19,707 - INFO:  * Debugger PIN: 120-442-373
+2025-01-26 11:33:51,890 - INFO: Gemini API successfully configured
+2025-01-26 11:34:39,841 - INFO: 127.0.0.1 - - [26/Jan/2025 11:34:39] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-26 11:49:30,590 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-26 11:49:30,590 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-26 11:49:33,422 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-26 11:49:35,382 - WARNING:  * Debugger is active!
+2025-01-26 11:49:35,384 - INFO:  * Debugger PIN: 120-442-373
+2025-01-26 11:49:35,406 - INFO: Gemini API successfully configured
+2025-01-26 11:50:25,221 - INFO: 127.0.0.1 - - [26/Jan/2025 11:50:25] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-26 11:52:29,041 - INFO: Gemini API successfully configured
+2025-01-26 11:53:22,766 - INFO: 127.0.0.1 - - [26/Jan/2025 11:53:22] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-26 11:56:30,005 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-26 11:56:30,006 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-26 11:56:32,472 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-26 11:56:34,466 - WARNING:  * Debugger is active!
+2025-01-26 11:56:34,470 - INFO:  * Debugger PIN: 120-442-373
+2025-01-26 11:56:34,488 - INFO: Gemini API successfully configured
+2025-01-26 11:57:43,940 - INFO: 127.0.0.1 - - [26/Jan/2025 11:57:43] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-26 11:58:55,895 - INFO: Gemini API successfully configured
+2025-01-26 11:59:53,916 - INFO: 127.0.0.1 - - [26/Jan/2025 11:59:53] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-26 12:08:20,197 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-26 12:08:20,198 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-26 12:08:23,300 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-26 12:08:25,094 - WARNING:  * Debugger is active!
+2025-01-26 12:08:25,097 - INFO:  * Debugger PIN: 120-442-373
+2025-01-26 12:09:54,316 - ERROR: API Configuration Error: name 'os' is not defined
+2025-01-26 12:09:54,317 - ERROR: Report Generation Error: name 'os' is not defined
+2025-01-26 12:09:54,318 - INFO: 127.0.0.1 - - [26/Jan/2025 12:09:54] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-26 12:10:28,812 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-26 12:10:28,813 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-26 12:10:29,586 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-26 12:10:31,388 - WARNING:  * Debugger is active!
+2025-01-26 12:10:31,391 - INFO:  * Debugger PIN: 120-442-373
+2025-01-26 12:10:32,396 - INFO: Gemini API successfully configured
+2025-01-26 12:10:43,195 - INFO: 127.0.0.1 - - [26/Jan/2025 12:10:43] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-26 12:12:26,929 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-26 12:12:26,938 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-26 12:12:29,858 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-26 12:12:31,587 - WARNING:  * Debugger is active!
+2025-01-26 12:12:31,589 - INFO:  * Debugger PIN: 120-442-373
+2025-01-26 12:12:33,909 - INFO: Gemini API successfully configured
+2025-01-26 12:13:37,372 - INFO: 127.0.0.1 - - [26/Jan/2025 12:13:37] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-26 14:35:39,000 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://192.168.180.245:3001
+2025-01-26 14:35:39,004 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-26 14:35:39,034 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-26 14:35:42,695 - WARNING:  * Debugger is active!
+2025-01-26 14:35:42,723 - INFO:  * Debugger PIN: 120-442-373
+2025-01-26 14:36:10,822 - INFO: Gemini API successfully configured
+2025-01-26 14:37:24,382 - INFO: 127.0.0.1 - - [26/Jan/2025 14:37:24] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-26 19:38:52,626 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://172.20.10.2:3001
+2025-01-26 19:38:52,626 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-26 19:38:52,662 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-26 19:38:56,624 - WARNING:  * Debugger is active!
+2025-01-26 19:38:56,674 - INFO:  * Debugger PIN: 120-442-373
+2025-01-26 19:39:56,230 - INFO: 127.0.0.1 - - [26/Jan/2025 19:39:56] "[33mPOST /api/generate-report HTTP/1.1[0m" 404 -
+2025-01-26 19:40:45,207 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-26 19:40:46,366 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-26 19:40:50,785 - WARNING:  * Debugger is active!
+2025-01-26 19:40:50,790 - INFO:  * Debugger PIN: 120-442-373
+2025-01-26 19:41:38,322 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-26 19:41:38,369 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-26 19:41:38,372 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-26 19:41:39,540 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-26 19:41:43,384 - WARNING:  * Debugger is active!
+2025-01-26 19:41:43,389 - INFO:  * Debugger PIN: 120-442-373
+2025-01-26 19:41:43,753 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-26 19:41:43,755 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-26 19:41:44,772 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-26 19:41:48,533 - WARNING:  * Debugger is active!
+2025-01-26 19:41:48,541 - INFO:  * Debugger PIN: 120-442-373
+2025-01-26 19:42:20,284 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-26 19:42:20,287 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-26 19:42:21,141 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-26 19:42:25,224 - WARNING:  * Debugger is active!
+2025-01-26 19:42:25,231 - INFO:  * Debugger PIN: 120-442-373
+2025-01-26 19:42:26,295 - INFO: Gemini API successfully configured
+2025-01-26 19:42:57,148 - ERROR: Detailed Report Error (top_careers): 500 An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting
+2025-01-26 19:42:58,195 - ERROR: Detailed Report Error (career_intro): 500 An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting
+2025-01-26 19:42:59,709 - ERROR: Detailed Report Error (career_roadmap): 500 An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting
+2025-01-26 19:44:05,309 - INFO: 127.0.0.1 - - [26/Jan/2025 19:44:05] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-26 19:50:18,936 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-26 19:50:18,953 - INFO:  * Detected change in 'E:\\carrer_saas\\backend\\server.py', reloading
+2025-01-26 19:50:22,077 - INFO:  * Restarting with watchdog (windowsapi)
+2025-01-26 19:50:40,205 - INFO: Gemini API configured successfully
+2025-01-26 19:52:19,351 - INFO: 127.0.0.1 - - [26/Jan/2025 19:52:19] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-27 12:44:40,748 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://192.168.0.126:3001
+2025-01-27 12:44:40,749 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-27 13:09:42,549 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://192.168.0.126:3001
+2025-01-27 13:09:42,551 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-27 13:11:56,821 - ERROR: Topic generation failed for top_careers: contents must not be empty
+2025-01-27 13:11:56,824 - ERROR: Topic generation failed for career_intro: contents must not be empty
+2025-01-27 13:12:10,428 - ERROR: Topic generation failed for career_education: contents must not be empty
+2025-01-27 13:12:10,429 - ERROR: Topic generation failed for career_growth: contents must not be empty
+2025-01-27 13:12:10,431 - ERROR: Topic generation failed for indian_colleges: contents must not be empty
+2025-01-27 13:12:10,433 - ERROR: Topic generation failed for global_colleges: contents must not be empty
+2025-01-27 13:12:10,437 - INFO: 127.0.0.1 - - [27/Jan/2025 13:12:10] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-27 13:15:33,203 - ERROR: Topic generation failed for top_careers: contents must not be empty
+2025-01-27 13:15:33,205 - ERROR: Topic generation failed for career_intro: contents must not be empty
+2025-01-27 13:15:44,557 - ERROR: Topic generation failed for career_education: contents must not be empty
+2025-01-27 13:15:44,558 - ERROR: Topic generation failed for career_growth: contents must not be empty
+2025-01-27 13:15:44,559 - ERROR: Topic generation failed for indian_colleges: contents must not be empty
+2025-01-27 13:15:44,560 - ERROR: Topic generation failed for global_colleges: contents must not be empty
+2025-01-27 13:15:44,562 - INFO: 127.0.0.1 - - [27/Jan/2025 13:15:44] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-27 13:16:32,581 - ERROR: Topic generation failed for top_careers: contents must not be empty
+2025-01-27 13:16:32,582 - ERROR: Topic generation failed for career_intro: contents must not be empty
+2025-01-27 13:16:40,672 - ERROR: Topic generation failed for career_education: contents must not be empty
+2025-01-27 13:16:40,674 - ERROR: Topic generation failed for career_growth: contents must not be empty
+2025-01-27 13:16:40,675 - ERROR: Topic generation failed for indian_colleges: contents must not be empty
+2025-01-27 13:16:40,676 - ERROR: Topic generation failed for global_colleges: contents must not be empty
+2025-01-27 13:16:40,678 - INFO: 127.0.0.1 - - [27/Jan/2025 13:16:40] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-27 13:17:03,891 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://192.168.0.126:3001
+2025-01-27 13:17:03,893 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-27 13:17:05,943 - INFO: Gemini API configured successfully
+2025-01-27 13:18:35,571 - INFO: 127.0.0.1 - - [27/Jan/2025 13:18:35] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-27 13:24:00,297 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://192.168.0.126:3001
+2025-01-27 13:24:00,298 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-27 13:24:34,126 - INFO: Gemini API configured successfully
+2025-01-27 13:26:00,497 - INFO: 127.0.0.1 - - [27/Jan/2025 13:26:00] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-27 13:35:07,992 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://192.168.0.126:3001
+2025-01-27 13:35:07,995 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-27 13:35:13,381 - INFO: Gemini API configured successfully
+2025-01-27 13:37:56,217 - INFO: 127.0.0.1 - - [27/Jan/2025 13:37:56] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-27 13:45:51,725 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://192.168.0.126:3001
+2025-01-27 13:45:51,727 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-27 13:45:57,128 - INFO: Gemini API configured successfully
+2025-01-27 13:46:25,483 - ERROR: Unexpected error (career_intro): contents must not be empty
+2025-01-27 13:46:26,985 - ERROR: Unexpected error (career_intro): contents must not be empty
+2025-01-27 13:46:29,988 - ERROR: Unexpected error (career_intro): contents must not be empty
+2025-01-27 13:46:36,490 - ERROR: Unexpected error (career_roadmap): contents must not be empty
+2025-01-27 13:46:37,993 - ERROR: Unexpected error (career_roadmap): contents must not be empty
+2025-01-27 13:46:40,995 - ERROR: Unexpected error (career_roadmap): contents must not be empty
+2025-01-27 13:47:40,917 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://192.168.0.126:3001
+2025-01-27 13:47:40,918 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-27 13:48:08,275 - INFO: Gemini API configured successfully
+2025-01-27 13:51:07,507 - INFO: 127.0.0.1 - - [27/Jan/2025 13:51:07] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-27 14:12:24,173 - INFO: Gemini API configured successfully
+2025-01-27 14:15:13,903 - INFO: 127.0.0.1 - - [27/Jan/2025 14:15:13] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-27 22:05:34,783 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://192.168.180.245:3001
+2025-01-27 22:05:34,784 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-27 22:06:55,333 - INFO: Gemini API configured successfully
+2025-01-27 22:06:55,336 - INFO: 127.0.0.1 - - [27/Jan/2025 22:06:55] "[31m[1mPOST /api/generate-report HTTP/1.1[0m" 400 -
+2025-01-27 22:56:02,186 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://192.168.180.245:3001
+2025-01-27 22:56:02,187 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-27 22:56:07,489 - INFO: Gemini API configured successfully
+2025-01-27 22:57:04,841 - WARNING: API Error (top_careers attempt 1): 504 Deadline Exceeded
+2025-01-27 22:59:03,788 - WARNING: API Error (global_colleges attempt 1): 500 An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting
+2025-01-27 22:59:53,543 - INFO: 127.0.0.1 - - [27/Jan/2025 22:59:53] "POST /api/generate-report HTTP/1.1" 200 -
