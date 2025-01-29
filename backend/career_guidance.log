@@ -379,3 +379,237 @@
 2025-01-29 11:31:52,563 - INFO: [33mPress CTRL+C to quit[0m
 2025-01-29 11:32:18,826 - INFO: Gemini API configured successfully
 2025-01-29 11:34:54,503 - INFO: 127.0.0.1 - - [29/Jan/2025 11:34:54] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-29 13:45:00,459 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-29 13:45:00,460 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-29 16:13:26,511 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-29 16:13:26,513 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-29 16:14:12,299 - ERROR: Assessment submission error: 'Technical Skills'
+2025-01-29 16:14:12,300 - INFO: 127.0.0.1 - - [29/Jan/2025 16:14:12] "[35m[1mPOST /api/submit-assessment HTTP/1.1[0m" 500 -
+2025-01-29 16:14:40,154 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-29 16:14:40,159 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-29 16:14:47,187 - ERROR: Assessment submission error: 'Technical Skills'
+2025-01-29 16:14:47,190 - INFO: 127.0.0.1 - - [29/Jan/2025 16:14:47] "[35m[1mPOST /api/submit-assessment HTTP/1.1[0m" 500 -
+2025-01-29 16:31:12,081 - ERROR: Assessment submission error: 'Technical Skills'
+2025-01-29 16:31:12,084 - INFO: 127.0.0.1 - - [29/Jan/2025 16:31:12] "[35m[1mPOST /api/submit-assessment HTTP/1.1[0m" 500 -
+2025-01-29 16:31:26,215 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-29 16:31:26,216 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-29 16:31:29,353 - ERROR: Assessment submission error: 'Attention to Detail'
+2025-01-29 16:31:29,355 - INFO: 127.0.0.1 - - [29/Jan/2025 16:31:29] "[35m[1mPOST /api/submit-assessment HTTP/1.1[0m" 500 -
+2025-01-29 16:32:03,339 - ERROR: Assessment submission error: 'Attention to Detail'
+2025-01-29 16:32:03,342 - INFO: 127.0.0.1 - - [29/Jan/2025 16:32:03] "[35m[1mPOST /api/submit-assessment HTTP/1.1[0m" 500 -
+2025-01-29 16:35:48,204 - ERROR: Failed to initialize AssessmentManager: Unknown trait 'Technical Skills' in scoring system
+2025-01-29 16:36:22,557 - ERROR: Missing traits in trait_scores: {'Science and Research', 'Scientific Research', 'Writing Skills', 'Public Speaking', 'Negotiation', 'Writing', 'Future-Oriented Thinking', 'Athletic Ability', 'Market Analysis', 'Public Relations', 'Artificial Intelligence', 'Collaboration', 'Physical Skills', 'Comfort with Technology', 'Curiosity', 'Designing', 'Listening Skills', 'Experimental Thinking', 'Artistic Skills', 'Conventional Thinking', 'Self-reliance', 'Math Skills', 'Service Orientation', 'Humanitarian Work', 'Psychology', 'Technical Accuracy', 'Solitary Work', 'Confidence', 'Visionary Thinking', 'Economics', 'Customer Relations', 'Market Dynamics', 'Interpersonal Skills', 'Creativity', 'Innovation', 'Artistic Expression', 'Aesthetic Sense', 'Entrepreneurship', 'Stability Seeking', 'Mental Stamina', 'Crisis Management', 'Precision', 'Machine Learning', 'Human Behavior Analysis', 'Sustainability', 'Risk Taking', 'Entrepreneurial Spirit', 'Creative Problem Solving', 'Engineering', 'Independent Thinking', 'Persuasion', 'Emotional Intelligence', 'Leadership', 'Networking', 'Physical Endurance', 'Coding', 'Business', 'People Management', 'Tradition', 'Compassion', 'Arts and Humanities', 'Big Picture Thinking', 'Creative Freedom', 'Decision Making', 'Research Skills', 'Social Interaction', 'Budgeting Skills', 'Financial Literacy', 'Environmental Science', 'Business Acumen', 'Hand-eye Coordination', 'Social Awareness', 'Social Skills', 'Logic', 'Data Analysis', 'Long-term Planning', 'Written Communication', 'Financial Management'}
+2025-01-29 16:36:22,583 - ERROR: Failed to initialize AssessmentManager: Unknown traits in scoring system: {'Science and Research', 'Scientific Research', 'Writing Skills', 'Public Speaking', 'Negotiation', 'Writing', 'Future-Oriented Thinking', 'Athletic Ability', 'Market Analysis', 'Public Relations', 'Artificial Intelligence', 'Collaboration', 'Physical Skills', 'Comfort with Technology', 'Curiosity', 'Designing', 'Listening Skills', 'Experimental Thinking', 'Artistic Skills', 'Conventional Thinking', 'Self-reliance', 'Math Skills', 'Service Orientation', 'Humanitarian Work', 'Psychology', 'Technical Accuracy', 'Solitary Work', 'Confidence', 'Visionary Thinking', 'Economics', 'Customer Relations', 'Market Dynamics', 'Interpersonal Skills', 'Creativity', 'Innovation', 'Artistic Expression', 'Aesthetic Sense', 'Entrepreneurship', 'Stability Seeking', 'Mental Stamina', 'Crisis Management', 'Precision', 'Machine Learning', 'Human Behavior Analysis', 'Sustainability', 'Risk Taking', 'Entrepreneurial Spirit', 'Creative Problem Solving', 'Engineering', 'Independent Thinking', 'Persuasion', 'Emotional Intelligence', 'Leadership', 'Networking', 'Physical Endurance', 'Coding', 'Business', 'People Management', 'Tradition', 'Compassion', 'Arts and Humanities', 'Big Picture Thinking', 'Creative Freedom', 'Decision Making', 'Research Skills', 'Social Interaction', 'Budgeting Skills', 'Financial Literacy', 'Environmental Science', 'Business Acumen', 'Hand-eye Coordination', 'Social Awareness', 'Social Skills', 'Logic', 'Data Analysis', 'Long-term Planning', 'Written Communication', 'Financial Management'}
+2025-01-29 16:36:33,041 - ERROR: Missing traits in trait_scores: {'Entrepreneurship', 'Physical Endurance', 'Creative Problem Solving', 'Collaboration', 'Human Behavior Analysis', 'Conventional Thinking', 'Customer Relations', 'Science and Research', 'Curiosity', 'Writing Skills', 'Coding', 'Visionary Thinking', 'Comfort with Technology', 'People Management', 'Physical Skills', 'Written Communication', 'Hand-eye Coordination', 'Confidence', 'Negotiation', 'Long-term Planning', 'Stability Seeking', 'Artistic Expression', 'Market Analysis', 'Big Picture Thinking', 'Technical Accuracy', 'Social Awareness', 'Budgeting Skills', 'Aesthetic Sense', 'Solitary Work', 'Public Relations', 'Future-Oriented Thinking', 'Artificial Intelligence', 'Entrepreneurial Spirit', 'Psychology', 'Environmental Science', 'Mental Stamina', 'Artistic Skills', 'Compassion', 'Logic', 'Creativity', 'Designing', 'Athletic Ability', 'Innovation', 'Emotional Intelligence', 'Engineering', 'Networking', 'Self-reliance', 'Social Interaction', 'Decision Making', 'Interpersonal Skills', 'Public Speaking', 'Arts and Humanities', 'Experimental Thinking', 'Market Dynamics', 'Sustainability', 'Financial Management', 'Business', 'Humanitarian Work', 'Service Orientation', 'Machine Learning', 'Crisis Management', 'Writing', 'Business Acumen', 'Scientific Research', 'Financial Literacy', 'Math Skills', 'Creative Freedom', 'Risk Taking', 'Listening Skills', 'Persuasion', 'Data Analysis', 'Independent Thinking', 'Research Skills', 'Precision', 'Leadership', 'Tradition', 'Social Skills', 'Economics'}
+2025-01-29 16:36:33,045 - ERROR: Failed to initialize AssessmentManager: Unknown traits in scoring system: {'Entrepreneurship', 'Physical Endurance', 'Creative Problem Solving', 'Collaboration', 'Human Behavior Analysis', 'Conventional Thinking', 'Customer Relations', 'Science and Research', 'Curiosity', 'Writing Skills', 'Coding', 'Visionary Thinking', 'Comfort with Technology', 'People Management', 'Physical Skills', 'Written Communication', 'Hand-eye Coordination', 'Confidence', 'Negotiation', 'Long-term Planning', 'Stability Seeking', 'Artistic Expression', 'Market Analysis', 'Big Picture Thinking', 'Technical Accuracy', 'Social Awareness', 'Budgeting Skills', 'Aesthetic Sense', 'Solitary Work', 'Public Relations', 'Future-Oriented Thinking', 'Artificial Intelligence', 'Entrepreneurial Spirit', 'Psychology', 'Environmental Science', 'Mental Stamina', 'Artistic Skills', 'Compassion', 'Logic', 'Creativity', 'Designing', 'Athletic Ability', 'Innovation', 'Emotional Intelligence', 'Engineering', 'Networking', 'Self-reliance', 'Social Interaction', 'Decision Making', 'Interpersonal Skills', 'Public Speaking', 'Arts and Humanities', 'Experimental Thinking', 'Market Dynamics', 'Sustainability', 'Financial Management', 'Business', 'Humanitarian Work', 'Service Orientation', 'Machine Learning', 'Crisis Management', 'Writing', 'Business Acumen', 'Scientific Research', 'Financial Literacy', 'Math Skills', 'Creative Freedom', 'Risk Taking', 'Listening Skills', 'Persuasion', 'Data Analysis', 'Independent Thinking', 'Research Skills', 'Precision', 'Leadership', 'Tradition', 'Social Skills', 'Economics'}
+2025-01-29 16:40:06,654 - ERROR: Found undefined traits in scoring system: {'Stability Seeking', 'Financial Management', 'Solitary Work', 'Sustainability', 'Logic', 'Curiosity', 'Financial Literacy', 'Conventional Thinking', 'Independent Thinking', 'Science and Research', 'Public Speaking', 'Networking', 'Aesthetic Sense', 'Market Dynamics', 'Economics', 'Artistic Expression', 'Creative Freedom', 'Emotional Intelligence', 'Negotiation', 'Humanitarian Work', 'Research Skills', 'Business Acumen', 'Service Orientation', 'Written Communication', 'Physical Endurance', 'Machine Learning', 'Designing', 'Comfort with Technology', 'Social Interaction', 'Confidence', 'Creative Problem Solving', 'Future-Oriented Thinking', 'Listening Skills', 'Crisis Management', 'People Management', 'Arts and Humanities', 'Athletic Ability', 'Data Analysis', 'Mental Stamina', 'Engineering', 'Scientific Research', 'Customer Relations', 'Human Behavior Analysis', 'Public Relations', 'Budgeting Skills', 'Interpersonal Skills', 'Innovation', 'Writing', 'Entrepreneurial Spirit', 'Social Skills', 'Environmental Science', 'Tradition', 'Risk Taking', 'Coding', 'Technical Accuracy', 'Precision', 'Persuasion', 'Market Analysis', 'Psychology', 'Artificial Intelligence', 'Experimental Thinking', 'Business', 'Entrepreneurship', 'Long-term Planning', 'Compassion', 'Big Picture Thinking', 'Visionary Thinking'}
+2025-01-29 16:40:06,657 - ERROR: Failed to initialize AssessmentManager: Scoring system contains undefined traits: {'Stability Seeking', 'Financial Management', 'Solitary Work', 'Sustainability', 'Logic', 'Curiosity', 'Financial Literacy', 'Conventional Thinking', 'Independent Thinking', 'Science and Research', 'Public Speaking', 'Networking', 'Aesthetic Sense', 'Market Dynamics', 'Economics', 'Artistic Expression', 'Creative Freedom', 'Emotional Intelligence', 'Negotiation', 'Humanitarian Work', 'Research Skills', 'Business Acumen', 'Service Orientation', 'Written Communication', 'Physical Endurance', 'Machine Learning', 'Designing', 'Comfort with Technology', 'Social Interaction', 'Confidence', 'Creative Problem Solving', 'Future-Oriented Thinking', 'Listening Skills', 'Crisis Management', 'People Management', 'Arts and Humanities', 'Athletic Ability', 'Data Analysis', 'Mental Stamina', 'Engineering', 'Scientific Research', 'Customer Relations', 'Human Behavior Analysis', 'Public Relations', 'Budgeting Skills', 'Interpersonal Skills', 'Innovation', 'Writing', 'Entrepreneurial Spirit', 'Social Skills', 'Environmental Science', 'Tradition', 'Risk Taking', 'Coding', 'Technical Accuracy', 'Precision', 'Persuasion', 'Market Analysis', 'Psychology', 'Artificial Intelligence', 'Experimental Thinking', 'Business', 'Entrepreneurship', 'Long-term Planning', 'Compassion', 'Big Picture Thinking', 'Visionary Thinking'}
+2025-01-29 16:40:41,588 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-29 16:40:41,615 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-29 16:42:33,224 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-29 16:42:33,225 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-29 16:42:38,888 - WARNING: Question ID question27 not found in scoring system
+2025-01-29 16:42:38,889 - WARNING: Question ID question30 not found in scoring system
+2025-01-29 16:42:38,890 - WARNING: Question ID question32 not found in scoring system
+2025-01-29 16:42:38,890 - WARNING: Question ID question46 not found in scoring system
+2025-01-29 16:42:38,891 - WARNING: Question ID question47 not found in scoring system
+2025-01-29 16:42:38,892 - WARNING: Question ID question48 not found in scoring system
+2025-01-29 16:42:38,892 - WARNING: Question ID question49 not found in scoring system
+2025-01-29 16:42:38,894 - WARNING: Question ID question50 not found in scoring system
+2025-01-29 16:42:41,956 - WARNING: Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: timed out
+2025-01-29 16:42:45,873 - WARNING: Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: timed out
+2025-01-29 16:42:50,917 - WARNING: Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: timed out
+2025-01-29 16:42:50,919 - WARNING: Authentication failed using Compute Engine authentication due to unavailable metadata server.
+2025-01-29 16:42:50,920 - WARNING: API Error (attempt 1): 
+  No API_KEY or ADC found. Please either:
+    - Set the `GOOGLE_API_KEY` environment variable.
+    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
+    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
+2025-01-29 16:42:53,934 - WARNING: Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: timed out
+2025-01-29 16:42:57,857 - WARNING: Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: timed out
+2025-01-29 16:47:00,493 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-29 16:47:00,497 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-29 16:47:06,127 - WARNING: Question ID question27 not found in scoring system
+2025-01-29 16:47:06,129 - WARNING: Question ID question30 not found in scoring system
+2025-01-29 16:47:06,133 - WARNING: Question ID question32 not found in scoring system
+2025-01-29 16:47:06,137 - WARNING: Question ID question46 not found in scoring system
+2025-01-29 16:47:06,139 - WARNING: Question ID question47 not found in scoring system
+2025-01-29 16:47:06,140 - WARNING: Question ID question48 not found in scoring system
+2025-01-29 16:47:06,140 - WARNING: Question ID question49 not found in scoring system
+2025-01-29 16:47:06,141 - WARNING: Question ID question50 not found in scoring system
+2025-01-29 16:47:09,174 - WARNING: Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: timed out
+2025-01-29 16:47:13,117 - WARNING: Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: timed out
+2025-01-29 16:47:18,037 - WARNING: Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: timed out
+2025-01-29 16:47:18,038 - WARNING: Authentication failed using Compute Engine authentication due to unavailable metadata server.
+2025-01-29 16:47:18,040 - WARNING: API Error (attempt 1): 
+  No API_KEY or ADC found. Please either:
+    - Set the `GOOGLE_API_KEY` environment variable.
+    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
+    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
+2025-01-29 16:47:21,054 - WARNING: Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: timed out
+2025-01-29 16:47:25,136 - WARNING: Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: timed out
+2025-01-29 16:47:30,113 - WARNING: Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: timed out
+2025-01-29 16:47:30,115 - WARNING: Authentication failed using Compute Engine authentication due to unavailable metadata server.
+2025-01-29 16:47:30,116 - WARNING: API Error (attempt 2): 
+  No API_KEY or ADC found. Please either:
+    - Set the `GOOGLE_API_KEY` environment variable.
+    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
+    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
+2025-01-29 16:47:33,121 - WARNING: Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: timed out
+2025-01-29 16:47:37,070 - WARNING: Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: timed out
+2025-01-29 16:47:42,234 - WARNING: Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: timed out
+2025-01-29 16:47:42,235 - WARNING: Authentication failed using Compute Engine authentication due to unavailable metadata server.
+2025-01-29 16:47:42,236 - WARNING: API Error (attempt 3): 
+  No API_KEY or ADC found. Please either:
+    - Set the `GOOGLE_API_KEY` environment variable.
+    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
+    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
+2025-01-29 16:47:42,238 - ERROR: Assessment submission error: 
+  No API_KEY or ADC found. Please either:
+    - Set the `GOOGLE_API_KEY` environment variable.
+    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
+    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
+2025-01-29 16:47:42,241 - INFO: 127.0.0.1 - - [29/Jan/2025 16:47:42] "[35m[1mPOST /api/submit-assessment HTTP/1.1[0m" 500 -
+2025-01-29 16:51:49,916 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-29 16:51:49,917 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-29 16:51:52,025 - ERROR: Assessment submission error: 'AssessmentManager' object has no attribute 'calculate_scores'
+2025-01-29 16:51:52,027 - INFO: 127.0.0.1 - - [29/Jan/2025 16:51:52] "[35m[1mPOST /api/submit-assessment HTTP/1.1[0m" 500 -
+2025-01-29 16:53:31,799 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-29 16:53:31,803 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-29 17:05:00,130 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-29 17:05:00,131 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-29 17:24:44,652 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-29 17:24:44,654 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-29 17:24:50,838 - ERROR: Assessment submission error: 'AssessmentManager' object has no attribute 'calculate_scores'
+2025-01-29 17:24:50,842 - INFO: 127.0.0.1 - - [29/Jan/2025 17:24:50] "[35m[1mPOST /api/submit-assessment HTTP/1.1[0m" 500 -
+2025-01-29 17:26:15,951 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-29 17:26:15,952 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-29 17:27:51,785 - WARNING: Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: timed out
+2025-01-29 17:27:55,817 - WARNING: Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: timed out
+2025-01-29 17:28:00,759 - WARNING: Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: timed out
+2025-01-29 17:28:00,761 - WARNING: Authentication failed using Compute Engine authentication due to unavailable metadata server.
+2025-01-29 17:28:00,762 - WARNING: API Error (attempt 1): 
+  No API_KEY or ADC found. Please either:
+    - Set the `GOOGLE_API_KEY` environment variable.
+    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
+    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
+2025-01-29 17:28:03,768 - WARNING: Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: timed out
+2025-01-29 17:28:07,711 - WARNING: Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: timed out
+2025-01-29 17:28:12,692 - WARNING: Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: timed out
+2025-01-29 17:28:12,693 - WARNING: Authentication failed using Compute Engine authentication due to unavailable metadata server.
+2025-01-29 17:28:12,694 - WARNING: API Error (attempt 2): 
+  No API_KEY or ADC found. Please either:
+    - Set the `GOOGLE_API_KEY` environment variable.
+    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
+    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
+2025-01-29 17:28:15,705 - WARNING: Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: timed out
+2025-01-29 17:28:19,761 - WARNING: Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: timed out
+2025-01-29 17:28:24,649 - WARNING: Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: timed out
+2025-01-29 17:28:24,651 - WARNING: Authentication failed using Compute Engine authentication due to unavailable metadata server.
+2025-01-29 17:28:24,652 - WARNING: API Error (attempt 3): 
+  No API_KEY or ADC found. Please either:
+    - Set the `GOOGLE_API_KEY` environment variable.
+    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
+    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
+2025-01-29 17:28:24,653 - ERROR: Assessment submission error: 
+  No API_KEY or ADC found. Please either:
+    - Set the `GOOGLE_API_KEY` environment variable.
+    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
+    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
+2025-01-29 17:28:24,655 - INFO: 127.0.0.1 - - [29/Jan/2025 17:28:24] "[35m[1mPOST /api/submit-assessment HTTP/1.1[0m" 500 -
+2025-01-29 17:34:47,968 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-29 17:34:47,970 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-29 17:34:58,057 - WARNING: Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: timed out
+2025-01-29 17:35:02,030 - WARNING: Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: timed out
+2025-01-29 17:35:06,879 - WARNING: Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: timed out
+2025-01-29 17:35:06,882 - WARNING: Authentication failed using Compute Engine authentication due to unavailable metadata server.
+2025-01-29 17:35:06,882 - WARNING: API Error (attempt 1): 
+  No API_KEY or ADC found. Please either:
+    - Set the `GOOGLE_API_KEY` environment variable.
+    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
+    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
+2025-01-29 17:35:09,889 - WARNING: Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: timed out
+2025-01-29 17:35:13,869 - WARNING: Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: timed out
+2025-01-29 17:37:02,111 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-29 17:37:02,114 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-29 17:37:07,724 - WARNING: Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: timed out
+2025-01-29 17:37:11,760 - WARNING: Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: timed out
+2025-01-29 17:37:16,680 - WARNING: Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: timed out
+2025-01-29 17:37:16,681 - WARNING: Authentication failed using Compute Engine authentication due to unavailable metadata server.
+2025-01-29 17:37:16,681 - WARNING: API Error (attempt 1): 
+  No API_KEY or ADC found. Please either:
+    - Set the `GOOGLE_API_KEY` environment variable.
+    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
+    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
+2025-01-29 17:37:19,684 - WARNING: Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: timed out
+2025-01-29 17:37:23,634 - WARNING: Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: timed out
+2025-01-29 17:37:28,567 - WARNING: Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: timed out
+2025-01-29 17:37:28,568 - WARNING: Authentication failed using Compute Engine authentication due to unavailable metadata server.
+2025-01-29 17:37:28,569 - WARNING: API Error (attempt 2): 
+  No API_KEY or ADC found. Please either:
+    - Set the `GOOGLE_API_KEY` environment variable.
+    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
+    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
+2025-01-29 17:37:31,587 - WARNING: Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: timed out
+2025-01-29 17:37:35,643 - WARNING: Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: timed out
+2025-01-29 17:37:40,499 - WARNING: Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: timed out
+2025-01-29 17:37:40,501 - WARNING: Authentication failed using Compute Engine authentication due to unavailable metadata server.
+2025-01-29 17:37:40,502 - WARNING: API Error (attempt 3): 
+  No API_KEY or ADC found. Please either:
+    - Set the `GOOGLE_API_KEY` environment variable.
+    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
+    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
+2025-01-29 17:37:40,503 - ERROR: Assessment submission error: 
+  No API_KEY or ADC found. Please either:
+    - Set the `GOOGLE_API_KEY` environment variable.
+    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
+    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
+2025-01-29 17:37:40,506 - INFO: 127.0.0.1 - - [29/Jan/2025 17:37:40] "[35m[1mPOST /api/submit-assessment HTTP/1.1[0m" 500 -
+2025-01-29 17:41:30,075 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-29 17:41:30,077 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-29 17:43:32,438 - INFO: 127.0.0.1 - - [29/Jan/2025 17:43:32] "[33mPOST /api/submit-assessment HTTP/1.1[0m" 404 -
