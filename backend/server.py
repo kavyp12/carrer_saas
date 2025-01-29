@@ -1374,22 +1374,661 @@
 # if __name__ == '__main__':
 #     app.run(port=3001, debug=True)
 
-import os
-import time
-import logging
-import tempfile
-from functools import lru_cache
-from datetime import datetime
+# import os
+# import time
+# import logging
+# import tempfile
+# from functools import lru_cache
+# from datetime import datetime
+# from flask import Flask, request, jsonify, send_file
+# from flask_cors import CORS
+# import google.generativeai as genai
+# from google.api_core import exceptions
+# from dotenv import load_dotenv
+# from reportlab.lib.pagesizes import letter
+# from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, Table, TableStyle
+# from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+# from reportlab.lib import colors
+# from reportlab.lib.units import inch
+
+# # Load environment variables
+# load_dotenv()
+
+# # Configure logging
+# logging.basicConfig(
+#     level=logging.INFO,
+#     format='%(asctime)s - %(levelname)s: %(message)s',
+#     handlers=[logging.FileHandler('career_guidance.log'), logging.StreamHandler()],
+# )
+
+# app = Flask(__name__)
+# CORS(app)
+
+# # API configuration parameters
+# MAX_RETRIES = 3
+# RETRY_DELAY = 1.5  # Seconds between retries
+# API_TIMEOUT = 30  # Increased timeout for longer responses
+# RATE_LIMIT_DELAY = 2  # Increased delay between requests
+# PAGE_MARGIN = 0.5 * inch
+
+# # PDF Styles
+# styles = getSampleStyleSheet()
+# styles.add(ParagraphStyle(
+#     name='Content',
+#     fontSize=10,
+#     leading=14,
+#     spaceAfter=6,
+#     spaceBefore=6
+# ))
+# styles.add(ParagraphStyle(
+#     name='CustomHeading2',  # Use a unique name
+#     fontSize=14,
+#     leading=18,
+#     spaceAfter=6,
+#     spaceBefore=12,
+#     fontName='Helve tica-Bold'
+# ))
+
+
+# def setup_gemini_api():
+#     """Configure Gemini API with validation."""
+#     try:
+#         api_key = os.getenv('GEMINI_API_KEY')
+#         if not api_key:
+#             raise ValueError("Missing GEMINI_API_KEY in environment variables")
+
+#         genai.configure(api_key=api_key)
+#         logging.info("Gemini API configured successfully")
+#     except Exception as e:
+#         logging.error(f"API configuration failed: {str(e)}")
+#         raise
+
+# @lru_cache(maxsize=128)
+# def extract_career_goal(answers):
+#     """Extract primary career goal with enhanced reliability."""
+#     for attempt in range(MAX_RETRIES):
+#         try:
+#             model = genai.GenerativeModel('gemini-pro')
+#             response = model.generate_content(
+#                 f"Identify primary career goal from these answers: {' '.join(answers)}\n"
+#                 "Focus on: direct mentions, implied interests, strongest professional direction.\n"
+#                 "Respond ONLY with the career goal name.",
+#                 generation_config={'max_output_tokens': 300},
+#                 request_options={'timeout': API_TIMEOUT}
+#             )
+#             return response.text.strip() if response.text else "Career Exploration"
+#         except exceptions.GoogleAPIError as api_err:
+#             logging.warning(f"API Error (attempt {attempt+1}): {str(api_err)}")
+#             time.sleep(RETRY_DELAY * (attempt + 1))
+#         except Exception as e:
+#             logging.error(f"Unexpected error: {str(e)}")
+#     return "Career Exploration"
+
+# @lru_cache(maxsize=512)
+# def generate_topic_report(topic, context, career_goal, student_name):
+#     """Generate detailed reports with enhanced prompts."""
+#     prompt_templates = {
+#         'personal_traits': f"""Analyze {student_name}'s suitability for {career_goal} (1000+ words):
+#         1. Core competencies assessment
+#         2. Personality alignment with career demands
+#         3. Skill gap analysis
+#         4. Development roadmap
+#         5. M entorship recommendations""",
+
+#         'skills_excel': f"""Comprehensive skills development plan for {career_goal}:
+#         1. Technical skills matrix (priority levels)
+#         2. Soft skills development timeline
+#         3. Learning resources (courses, books, podcasts)
+#         4. Practical application projects
+#         5. Certification roadmap
+#         6. Industry networking strategy""",
+
+#         'top_careers': f"""8 alternative careers for {career_goal} (500 words each):
+#         - Career title
+#         - Required qualifications
+#         - Skill transfer matrix
+#         - Growth projections (1/5/10 years)
+#         - Transition roadmap
+#         - Industry demand analysis
+#         - Salary benchmarks""",
+
+#         'career_intro': f"""Comprehensive 5-page guide to {career_goal}:
+#         1. Role evolution history
+#         2. Day-to-day responsibilities
+#         3. Industry verticals
+#         4. Global market trends
+#         5. Regulatory landscape
+#         6. Technology adoption
+#         7. Success case studies""",
+
+#         'career_roadmap': f"""10-year development plan for {career_goal}:
+#         1. Education timeline (degrees/certifications)
+#         2. Skill acquisition phases
+#         3. Experience milestones
+#         4. Networking strategy
+#         5. Financial planning
+#         6. Risk mitigation plan
+#         7. Performance metrics""",
+
+#         'career_education': f"""Education plan for {career_goal}:
+#         1. Global degree options (BS/MS/PhD)
+#         2. Certification hierarchy
+#         3. Online learning pathways
+#         4. Institution rankings
+#         5. Admission strategies
+#         6. Scholarship opportunities""",
+
+#         'career_growth': f"""10-year industry projection for {career_goal}:
+#         1. Salary trends by region
+#         2. Promotion pathways
+#         3. Emerging specializations
+#         4. Technology disruption analysis
+#         5. Global demand hotspots
+#         6. Entrepreneurship opportunities""",
+
+#         'indian_colleges': f"""10 Indian institutions for {career_goal} (detailed):
+#         - NIRF/NAAC rankings
+#         - Program structure
+#         - Admission process
+#         - Placement statistics (3 years)
+#         - Industry partnerships
+#         - Research facilities
+#         - Notable alumni
+#         - Campus infrastructure
+#         - Fee structure
+#         - Scholarship programs""",
+
+#         'global_colleges': f"""15 global universities for {career_goal}:
+#         - QS/THE rankings
+#         - Program specializations
+#         - International student support
+#         - Employment statistics
+#         - Application timeline
+#         - Cost of attendance
+#         - Visa success rates
+#         - Cultural adaptation programs
+#         - Alumni network""",
+
+#         'industry_analysis': f"""5-year industry analysis for {career_goal}:
+#         1. Market size projections
+#         2. Key players analysis
+#         3. Regulatory challenges
+#         4. Technology adoption
+#         5. Sustainability initiatives
+#         6. Regional opportunities""",
+
+#         'financial_planning': f"""10-year financial plan for {career_goal}:
+#         1. Education cost analysis
+#         2. Funding sources
+#         3. ROI projections
+#         4. Tax optimization
+#         5. Insurance needs
+#         6. Wealth management
+#         7. Exit strategies"""
+#     }
+
+#     for attempt in range(MAX_RETRIES):
+#         try:
+#             model = genai.GenerativeModel('gemini-pro')
+#             response = model.generate_content(
+#                 prompt_templates.get(topic, ''),
+#                 generation_config={
+#                     'temperature': 0.7,
+#                     'max_output_tokens': 4096,
+#                     'top_p': 0.9
+#                 },
+#                 request_options={'timeout': API_TIMEOUT}
+#             )
+#             return response.text if response.text else f"Content generation failed for {topic}"
+#         except exceptions.GoogleAPIError as api_err:
+#             logging.warning(f"API Error ({topic} attempt {attempt+1}): {str(api_err)}")
+#             time.sleep(RETRY_DELAY * (attempt + 2))
+#         except Exception as e:
+#             logging.error(f"Unexpected error ({topic}): {str(e)}")
+#             time.sleep(RETRY_DELAY * (attempt + 1))
+#     return f"Report generation failed after {MAX_RETRIES} attempts"
+
+# def generate_pdf_report(report_data, filename):
+#     """Generate 30+ page professional PDF report."""
+#     doc = SimpleDocTemplate(
+#         filename,
+#         pagesize=letter,
+#         leftMargin=PAGE_MARGIN,
+#         rightMargin=PAGE_MARGIN,
+#         topMargin=PAGE_MARGIN,
+#         bottomMargin=PAGE_MARGIN
+#     )
+    
+#     elements = []
+    
+#     # Cover Page
+#     elements.append(Paragraph("Career Development Report", styles['Title']))
+#     elements.append(Spacer(1, 24))
+#     elements.append(Paragraph(f"Prepared for: {report_data['student_name']}", styles['Heading2']))
+#     elements.append(Paragraph(f"Career Focus: {report_data['career_goal']}", styles['Heading2']))
+#     elements.append(Paragraph(f"Generated on: {datetime.now().strftime('%B %d, %Y')}", styles['Heading2']))
+#     elements.append(PageBreak())
+    
+#     # Table of Contents
+#     toc = [
+#         ["Section", "Page"],
+#         *[[section.replace('_', ' ').title(), ""] for section in report_data['report'].keys()]
+#     ]
+    
+#     toc_table = Table(toc, colWidths=[4*inch, 1*inch])
+#     toc_table.setStyle(TableStyle([
+#         ('BACKGROUND', (0,0), (-1,0), colors.grey),
+#         ('TEXTCOLOR', (0,0), (-1,0), colors.whitesmoke),
+#         ('ALIGN', (0,0), (-1,-1), 'LEFT'),
+#         ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
+#         ('FONTSIZE', (0,0), (-1,0), 12),
+#         ('BOTTOMPADDING', (0,0), (-1,0), 12),
+#         ('BACKGROUND', (0,1), (-1,-1), colors.beige),
+#         ('GRID', (0,0), (-1,-1), 1, colors.black)
+#     ]))
+    
+#     elements.append(Paragraph("Table of Contents", styles['Heading1']))
+#     elements.append(Spacer(1, 12))
+#     elements.append(toc_table)
+#     elements.append(PageBreak())
+    
+#     # Content Sections
+#     for section, content in report_data['report'].items():
+#         elements.append(Paragraph(section.replace('_', ' ').title(), styles['Heading1']))
+#         elements.append(Spacer(1, 12))
+        
+#         # Format content with proper paragraphs
+#         paragraphs = content.split('\n\n')
+#         for para in paragraphs:
+#             if para.strip():
+#                 elements.append(Paragraph(para.strip(), styles['Content']))
+#                 elements.append(Spacer(1, 6))
+        
+#         elements.append(PageBreak())
+    
+#     doc.build(elements)
+#     return filename
+
+# @app.route('/api/generate-report', methods=['POST'])
+# def generate_report():
+#     """Main endpoint with PDF generation."""
+#     try:
+#         setup_gemini_api()
+#         data = request.get_json()
+
+#         if not data or 'answers' not in data:
+#             return jsonify({"success": False, "error": "Missing answers data"}), 400
+
+#         # Analyze input
+#         student_name = data.get("studentName", "Student")
+#         answers = data.get("answers", [])
+#         career_goal = extract_career_goal(tuple(answers))
+#         context = f"{data.get('academicInfo', '')} {' '.join(answers)}"
+
+#         # Generate detailed reports
+#         topics = [
+#             'personal_traits', 'skills_excel', 'top_careers',
+#             'career_intro', 'career_roadmap', 'career_education',
+#             'career_growth', 'indian_colleges', 'global_colleges',
+#             'industry_analysis', 'financial_planning'
+#         ]
+        
+#         report = {}
+#         for topic in topics:
+#             report[topic] = generate_topic_report(topic, context, career_goal, student_name)
+#             time.sleep(RATE_LIMIT_DELAY)
+
+#         # Create PDF
+#         with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
+#             generate_pdf_report({
+#                 'student_name': student_name,
+#                 'career_goal': career_goal,
+#                 'report': report
+#             }, tmp.name)
+#             return send_file(tmp.name, mimetype='application/pdf', as_attachment=True, download_name=f"{student_name.replace(' ', '_')}_Career_Report.pdf")
+
+#     except Exception as e:
+#         logging.error(f"Endpoint error: {str(e)}")
+#         return jsonify({
+#             "success": False,
+#             "error": "Report generation failed",
+#             "details": str(e)
+#         }), 500
+
+# if __name__ == '__main__':
+#     app.run(host='0.0.0.0', port=3001, debug=False)
+
+# import os
+# import time
+# import logging
+# import tempfile
+# from functools import lru_cache
+# from datetime import datetime
+# from flask import Flask, request, jsonify, send_file
+# from flask_cors import CORS
+# import google.generativeai as genai
+# from google.api_core import exceptions
+# from dotenv import load_dotenv
+# from reportlab.lib.pagesizes import letter
+# from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, Table, TableStyle
+# from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+# from reportlab.lib import colors
+# from reportlab.lib.units import inch
+
+# # Load environment variables
+# load_dotenv()
+
+# # Configure logging
+# logging.basicConfig(
+#     level=logging.INFO,
+#     format='%(asctime)s - %(levelname)s: %(message)s',
+#     handlers=[logging.FileHandler('career_guidance.log'), logging.StreamHandler()],
+# )
+
+# app = Flask(__name__)
+# CORS(app)
+
+# # API configuration parameters
+# MAX_RETRIES = 3
+# RETRY_DELAY = 1.5  # Seconds between retries
+# API_TIMEOUT = 30  # Increased timeout for longer responses
+# RATE_LIMIT_DELAY = 2  # Increased delay between requests
+# PAGE_MARGIN = 0.5 * inch
+
+# # PDF Styles
+# styles = getSampleStyleSheet()
+# styles.add(ParagraphStyle(
+#     name='Content',
+#     fontSize=10,
+#     leading=14,
+#     spaceAfter=6,
+#     spaceBefore=6
+# ))
+# styles.add(ParagraphStyle(
+#     name='CustomHeading2',  # Use a unique name
+#     fontSize=14,
+#     leading=18,
+#     spaceAfter=6,
+#     spaceBefore=12,
+#     fontName='Helvetica-Bold'
+# ))
+
+# def setup_gemini_api():
+#     """Configure Gemini API with validation."""
+#     try:
+#         api_key = os.getenv('GEMINI_API_KEY')
+#         if not api_key:
+#             raise ValueError("Missing GEMINI_API_KEY in environment variables")
+
+#         genai.configure(api_key=api_key)
+#         logging.info("Gemini API configured successfully")
+#     except Exception as e:
+#         logging.error(f"API configuration failed: {str(e)}")
+#         raise
+
+# @lru_cache(maxsize=128)
+# def extract_career_goal(answers):
+#     """Extract primary career goal with enhanced reliability."""
+#     for attempt in range(MAX_RETRIES):
+#         try:
+#             model = genai.GenerativeModel('gemini-pro')
+#             response = model.generate_content(
+#                 f"Identify primary career goal from these answers: {' '.join(answers)}\n"
+#                 "Focus on: direct mentions, implied interests, strongest professional direction.\n"
+#                 "Respond ONLY with the career goal name.",
+#                 generation_config={'max_output_tokens': 300},
+#                 request_options={'timeout': API_TIMEOUT}
+#             )
+#             return response.text.strip() if response.text else "Career Exploration"
+#         except exceptions.GoogleAPIError as api_err:
+#             logging.warning(f"API Error (attempt {attempt+1}): {str(api_err)}")
+#             time.sleep(RETRY_DELAY * (attempt + 1))
+#         except Exception as e:
+#             logging.error(f"Unexpected error: {str(e)}")
+#     return "Career Exploration"
+
+# @lru_cache(maxsize=512)
+# def generate_topic_report(topic, context, career_goal, student_name):
+#     """Generate detailed reports with enhanced prompts."""
+#     prompt_templates = {
+#         'personal_traits': f"""Analyze {student_name}'s suitability for {career_goal} (1000+ words):
+#         1. Core competencies assessment
+#         2. Personality alignment with career demands
+#         3. Skill gap analysis
+#         4. Development roadmap
+#         5. Mentorship recommendations""",
+
+#         'skills_excel': f"""Comprehensive skills development plan for {career_goal}:
+#         1. Technical skills matrix (priority levels)
+#         2. Soft skills development timeline
+#         3. Learning resources (courses, books, podcasts)
+#         4. Practical application projects
+#         5. Certification roadmap
+#         6. Industry networking strategy""",
+
+#         'top_careers': f"""8 alternative careers for {career_goal} (500 words each):
+#         - Career title
+#         - Required qualifications
+#         - Skill transfer matrix
+#         - Growth projections (1/5/10 years)
+#         - Transition roadmap
+#         - Industry demand analysis
+#         - Salary benchmarks""",
+
+#         'career_intro': f"""Comprehensive 5-page guide to {career_goal}:
+#         1. Role evolution history
+#         2. Day-to-day responsibilities
+#         3. Industry verticals
+#         4. Global market trends
+#         5. Regulatory landscape
+#         6. Technology adoption
+#         7. Success case studies""",
+
+#         'career_roadmap': f"""10-year development plan for {career_goal}:
+#         1. Education timeline (degrees/certifications)
+#         2. Skill acquisition phases
+#         3. Experience milestones
+#         4. Networking strategy
+#         5. Financial planning
+#         6. Risk mitigation plan
+#         7. Performance metrics""",
+
+#         'career_education': f"""Education plan for {career_goal}:
+#         1. Global degree options (BS/MS/PhD)
+#         2. Certification hierarchy
+#         3. Online learning pathways
+#         4. Institution rankings
+#         5. Admission strategies
+#         6. Scholarship opportunities""",
+
+#         'career_growth': f"""10-year industry projection for {career_goal}:
+#         1. Salary trends by region
+#         2. Promotion pathways
+#         3. Emerging specializations
+#         4. Technology disruption analysis
+#         5. Global demand hotspots
+#         6. Entrepreneurship opportunities""",
+
+#         'indian_colleges': f"""10 Indian institutions for {career_goal} (detailed):
+#         - NIRF/NAAC rankings
+#         - Program structure
+#         - Admission process
+#         - Placement statistics (3 years)
+#         - Industry partnerships
+#         - Research facilities
+#         - Notable alumni
+#         - Campus infrastructure
+#         - Fee structure
+#         - Scholarship programs""",
+
+#         'global_colleges': f"""15 global universities for {career_goal}:
+#         - QS/THE rankings
+#         - Program specializations
+#         - International student support
+#         - Employment statistics
+#         - Application timeline
+#         - Cost of attendance
+#         - Visa success rates
+#         - Cultural adaptation programs
+#         - Alumni network""",
+
+#         'industry_analysis': f"""5-year industry analysis for {career_goal}:
+#         1. Market size projections
+#         2. Key players analysis
+#         3. Regulatory challenges
+#         4. Technology adoption
+#         5. Sustainability initiatives
+#         6. Regional opportunities""",
+
+#         'financial_planning': f"""10-year financial plan for {career_goal}:
+#         1. Education cost analysis
+#         2. Funding sources
+#         3. ROI projections
+#         4. Tax optimization
+#         5. Insurance needs
+#         6. Wealth management
+#         7. Exit strategies"""
+#     }
+
+#     for attempt in range(MAX_RETRIES):
+#         try:
+#             model = genai.GenerativeModel('gemini-pro')
+#             response = model.generate_content(
+#                 prompt_templates.get(topic, ''),
+#                 generation_config={
+#                     'temperature': 0.7,
+#                     'max_output_tokens': 2048,  # Reduced token limit
+#                     'top_p': 0.9
+#                 },
+#                 request_options={'timeout': API_TIMEOUT}
+#             )
+#             return response.text if response.text else f"Content generation failed for {topic}"
+#         except exceptions.GoogleAPIError as api_err:
+#             logging.warning(f"API Error ({topic} attempt {attempt+1}): {str(api_err)}")
+#             time.sleep(RETRY_DELAY * (attempt + 2))
+#         except Exception as e:
+#             logging.error(f"Unexpected error ({topic}): {str(e)}")
+#             time.sleep(RETRY_DELAY * (attempt + 1))
+#     return f"Report generation failed after {MAX_RETRIES} attempts"
+
+# def generate_pdf_report(report_data, filename):
+#     """Generate 30+ page professional PDF report."""
+#     doc = SimpleDocTemplate(
+#         filename,
+#         pagesize=letter,
+#         leftMargin=PAGE_MARGIN,
+#         rightMargin=PAGE_MARGIN,
+#         topMargin=PAGE_MARGIN,
+#         bottomMargin=PAGE_MARGIN
+#     )
+    
+#     elements = []
+    
+#     # Cover Page
+#     elements.append(Paragraph("Career Development Report", styles['Title']))
+#     elements.append(Spacer(1, 24))
+#     elements.append(Paragraph(f"Prepared for: {report_data['student_name']}", styles['Heading2']))
+#     elements.append(Paragraph(f"Career Focus: {report_data['career_goal']}", styles['Heading2']))
+#     elements.append(Paragraph(f"Generated on: {datetime.now().strftime('%B %d, %Y')}", styles['Heading2']))
+#     elements.append(PageBreak())
+    
+#     # Table of Contents
+#     toc = [
+#         ["Section", "Page"],
+#         *[[section.replace('_', ' ').title(), ""] for section in report_data['report'].keys()]
+#     ]
+    
+#     toc_table = Table(toc, colWidths=[4*inch, 1*inch])
+#     toc_table.setStyle(TableStyle([
+#         ('BACKGROUND', (0,0), (-1,0), colors.grey),
+#         ('TEXTCOLOR', (0,0), (-1,0), colors.whitesmoke),
+#         ('ALIGN', (0,0), (-1,-1), 'LEFT'),
+#         ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
+#         ('FONTSIZE', (0,0), (-1,0), 12),
+#         ('BOTTOMPADDING', (0,0), (-1,0), 12),
+#         ('BACKGROUND', (0,1), (-1,-1), colors.beige),
+#         ('GRID', (0,0), (-1,-1), 1, colors.black)
+#     ]))
+    
+#     elements.append(Paragraph("Table of Contents", styles['Heading1']))
+#     elements.append(Spacer(1, 12))
+#     elements.append(toc_table)
+#     elements.append(PageBreak())
+    
+#     # Content Sections
+#     for section, content in report_data['report'].items():
+#         elements.append(Paragraph(section.replace('_', ' ').title(), styles['Heading1']))
+#         elements.append(Spacer(1, 12))
+        
+#         # Format content with proper paragraphs
+#         paragraphs = content.split('\n\n')
+#         for para in paragraphs:
+#             if para.strip():
+#                 elements.append(Paragraph(para.strip(), styles['Content']))
+#                 elements.append(Spacer(1, 6))
+        
+#         elements.append(PageBreak())
+    
+#     doc.build(elements)
+#     return filename
+
+# @app.route('/api/generate-report', methods=['POST'])
+# def generate_report():
+#     """Main endpoint with PDF generation."""
+#     try:
+#         setup_gemini_api()
+#         data = request.get_json()
+
+#         if not data or 'answers' not in data:
+#             return jsonify({"success": False, "error": "Missing answers data"}), 400
+
+#         # Analyze input
+#         student_name = data.get("studentName", "Student")
+#         answers = data.get("answers", [])
+#         career_goal = extract_career_goal(tuple(answers))
+#         context = f"{data.get('academicInfo', '')} {' '.join(answers)}"
+
+#         # Generate detailed reports
+#         topics = [
+#             'personal_traits', 'skills_excel', 'top_careers',
+#             'career_intro', 'career_roadmap', 'career_education',
+#             'career_growth', 'indian_colleges', 'global_colleges',
+#             'industry_analysis', 'financial_planning'
+#         ]
+        
+#         report = {}
+#         for topic in topics:
+#             report[topic] = generate_topic_report(topic, context, career_goal, student_name)
+#             time.sleep(RATE_LIMIT_DELAY)
+
+#         # Create PDF
+#         with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
+#             generate_pdf_report({
+#                 'student_name': student_name,
+#                 'career_goal': career_goal,
+#                 'report': report
+#             }, tmp.name)
+#             return send_file(tmp.name, mimetype='application/pdf', as_attachment=True, download_name=f"{student_name.replace(' ', '_')}_Career_Report.pdf")
+
+#     except Exception as e:
+#         logging.error(f"Endpoint error: {str(e)}")
+#         return jsonify({
+#             "success": False,
+#             "error": "Report generation failed",
+#             "details": str(e)
+#         }), 500
+
+# if __name__ == '__main__':
+#     app.run(host='0.0.0.0', port=3001, debug=False)
 from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
-import google.generativeai as genai
-from google.api_core import exceptions
+import tempfile
+import logging
+from api.gemini_client import setup_gemini_api
+from api.prompt_manager import extract_career_goal, generate_topic_reports
+from reports.report_builder import build_report_data
+from reports.pdf_generator import generate_pdf_report
 from dotenv import load_dotenv
-from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, Table, TableStyle
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.lib import colors
-from reportlab.lib.units import inch
 
 # Load environment variables
 load_dotenv()
@@ -1404,251 +2043,6 @@ logging.basicConfig(
 app = Flask(__name__)
 CORS(app)
 
-# API configuration parameters
-MAX_RETRIES = 3
-RETRY_DELAY = 1.5  # Seconds between retries
-API_TIMEOUT = 30  # Increased timeout for longer responses
-RATE_LIMIT_DELAY = 2  # Increased delay between requests
-PAGE_MARGIN = 0.5 * inch
-
-# PDF Styles
-styles = getSampleStyleSheet()
-styles.add(ParagraphStyle(
-    name='Content',
-    fontSize=10,
-    leading=14,
-    spaceAfter=6,
-    spaceBefore=6
-))
-styles.add(ParagraphStyle(
-    name='CustomHeading2',  # Use a unique name
-    fontSize=14,
-    leading=18,
-    spaceAfter=6,
-    spaceBefore=12,
-    fontName='Helve tica-Bold'
-))
-
-
-def setup_gemini_api():
-    """Configure Gemini API with validation."""
-    try:
-        api_key = os.getenv('GEMINI_API_KEY')
-        if not api_key:
-            raise ValueError("Missing GEMINI_API_KEY in environment variables")
-
-        genai.configure(api_key=api_key)
-        logging.info("Gemini API configured successfully")
-    except Exception as e:
-        logging.error(f"API configuration failed: {str(e)}")
-        raise
-
-@lru_cache(maxsize=128)
-def extract_career_goal(answers):
-    """Extract primary career goal with enhanced reliability."""
-    for attempt in range(MAX_RETRIES):
-        try:
-            model = genai.GenerativeModel('gemini-pro')
-            response = model.generate_content(
-                f"Identify primary career goal from these answers: {' '.join(answers)}\n"
-                "Focus on: direct mentions, implied interests, strongest professional direction.\n"
-                "Respond ONLY with the career goal name.",
-                generation_config={'max_output_tokens': 300},
-                request_options={'timeout': API_TIMEOUT}
-            )
-            return response.text.strip() if response.text else "Career Exploration"
-        except exceptions.GoogleAPIError as api_err:
-            logging.warning(f"API Error (attempt {attempt+1}): {str(api_err)}")
-            time.sleep(RETRY_DELAY * (attempt + 1))
-        except Exception as e:
-            logging.error(f"Unexpected error: {str(e)}")
-    return "Career Exploration"
-
-@lru_cache(maxsize=512)
-def generate_topic_report(topic, context, career_goal, student_name):
-    """Generate detailed reports with enhanced prompts."""
-    prompt_templates = {
-        'personal_traits': f"""Analyze {student_name}'s suitability for {career_goal} (1000+ words):
-        1. Core competencies assessment
-        2. Personality alignment with career demands
-        3. Skill gap analysis
-        4. Development roadmap
-        5. Mentorship recommendations""",
-
-        'skills_excel': f"""Comprehensive skills development plan for {career_goal}:
-        1. Technical skills matrix (priority levels)
-        2. Soft skills development timeline
-        3. Learning resources (courses, books, podcasts)
-        4. Practical application projects
-        5. Certification roadmap
-        6. Industry networking strategy""",
-
-        'top_careers': f"""8 alternative careers for {career_goal} (500 words each):
-        - Career title
-        - Required qualifications
-        - Skill transfer matrix
-        - Growth projections (1/5/10 years)
-        - Transition roadmap
-        - Industry demand analysis
-        - Salary benchmarks""",
-
-        'career_intro': f"""Comprehensive 5-page guide to {career_goal}:
-        1. Role evolution history
-        2. Day-to-day responsibilities
-        3. Industry verticals
-        4. Global market trends
-        5. Regulatory landscape
-        6. Technology adoption
-        7. Success case studies""",
-
-        'career_roadmap': f"""10-year development plan for {career_goal}:
-        1. Education timeline (degrees/certifications)
-        2. Skill acquisition phases
-        3. Experience milestones
-        4. Networking strategy
-        5. Financial planning
-        6. Risk mitigation plan
-        7. Performance metrics""",
-
-        'career_education': f"""Education plan for {career_goal}:
-        1. Global degree options (BS/MS/PhD)
-        2. Certification hierarchy
-        3. Online learning pathways
-        4. Institution rankings
-        5. Admission strategies
-        6. Scholarship opportunities""",
-
-        'career_growth': f"""10-year industry projection for {career_goal}:
-        1. Salary trends by region
-        2. Promotion pathways
-        3. Emerging specializations
-        4. Technology disruption analysis
-        5. Global demand hotspots
-        6. Entrepreneurship opportunities""",
-
-        'indian_colleges': f"""10 Indian institutions for {career_goal} (detailed):
-        - NIRF/NAAC rankings
-        - Program structure
-        - Admission process
-        - Placement statistics (3 years)
-        - Industry partnerships
-        - Research facilities
-        - Notable alumni
-        - Campus infrastructure
-        - Fee structure
-        - Scholarship programs""",
-
-        'global_colleges': f"""15 global universities for {career_goal}:
-        - QS/THE rankings
-        - Program specializations
-        - International student support
-        - Employment statistics
-        - Application timeline
-        - Cost of attendance
-        - Visa success rates
-        - Cultural adaptation programs
-        - Alumni network""",
-
-        'industry_analysis': f"""5-year industry analysis for {career_goal}:
-        1. Market size projections
-        2. Key players analysis
-        3. Regulatory challenges
-        4. Technology adoption
-        5. Sustainability initiatives
-        6. Regional opportunities""",
-
-        'financial_planning': f"""10-year financial plan for {career_goal}:
-        1. Education cost analysis
-        2. Funding sources
-        3. ROI projections
-        4. Tax optimization
-        5. Insurance needs
-        6. Wealth management
-        7. Exit strategies"""
-    }
-
-    for attempt in range(MAX_RETRIES):
-        try:
-            model = genai.GenerativeModel('gemini-pro')
-            response = model.generate_content(
-                prompt_templates.get(topic, ''),
-                generation_config={
-                    'temperature': 0.7,
-                    'max_output_tokens': 4096,
-                    'top_p': 0.9
-                },
-                request_options={'timeout': API_TIMEOUT}
-            )
-            return response.text if response.text else f"Content generation failed for {topic}"
-        except exceptions.GoogleAPIError as api_err:
-            logging.warning(f"API Error ({topic} attempt {attempt+1}): {str(api_err)}")
-            time.sleep(RETRY_DELAY * (attempt + 2))
-        except Exception as e:
-            logging.error(f"Unexpected error ({topic}): {str(e)}")
-            time.sleep(RETRY_DELAY * (attempt + 1))
-    return f"Report generation failed after {MAX_RETRIES} attempts"
-
-def generate_pdf_report(report_data, filename):
-    """Generate 30+ page professional PDF report."""
-    doc = SimpleDocTemplate(
-        filename,
-        pagesize=letter,
-        leftMargin=PAGE_MARGIN,
-        rightMargin=PAGE_MARGIN,
-        topMargin=PAGE_MARGIN,
-        bottomMargin=PAGE_MARGIN
-    )
-    
-    elements = []
-    
-    # Cover Page
-    elements.append(Paragraph("Career Development Report", styles['Title']))
-    elements.append(Spacer(1, 24))
-    elements.append(Paragraph(f"Prepared for: {report_data['student_name']}", styles['Heading2']))
-    elements.append(Paragraph(f"Career Focus: {report_data['career_goal']}", styles['Heading2']))
-    elements.append(Paragraph(f"Generated on: {datetime.now().strftime('%B %d, %Y')}", styles['Heading2']))
-    elements.append(PageBreak())
-    
-    # Table of Contents
-    toc = [
-        ["Section", "Page"],
-        *[[section.replace('_', ' ').title(), ""] for section in report_data['report'].keys()]
-    ]
-    
-    toc_table = Table(toc, colWidths=[4*inch, 1*inch])
-    toc_table.setStyle(TableStyle([
-        ('BACKGROUND', (0,0), (-1,0), colors.grey),
-        ('TEXTCOLOR', (0,0), (-1,0), colors.whitesmoke),
-        ('ALIGN', (0,0), (-1,-1), 'LEFT'),
-        ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
-        ('FONTSIZE', (0,0), (-1,0), 12),
-        ('BOTTOMPADDING', (0,0), (-1,0), 12),
-        ('BACKGROUND', (0,1), (-1,-1), colors.beige),
-        ('GRID', (0,0), (-1,-1), 1, colors.black)
-    ]))
-    
-    elements.append(Paragraph("Table of Contents", styles['Heading1']))
-    elements.append(Spacer(1, 12))
-    elements.append(toc_table)
-    elements.append(PageBreak())
-    
-    # Content Sections
-    for section, content in report_data['report'].items():
-        elements.append(Paragraph(section.replace('_', ' ').title(), styles['Heading1']))
-        elements.append(Spacer(1, 12))
-        
-        # Format content with proper paragraphs
-        paragraphs = content.split('\n\n')
-        for para in paragraphs:
-            if para.strip():
-                elements.append(Paragraph(para.strip(), styles['Content']))
-                elements.append(Spacer(1, 6))
-        
-        elements.append(PageBreak())
-    
-    doc.build(elements)
-    return filename
-
 @app.route('/api/generate-report', methods=['POST'])
 def generate_report():
     """Main endpoint with PDF generation."""
@@ -1659,33 +2053,29 @@ def generate_report():
         if not data or 'answers' not in data:
             return jsonify({"success": False, "error": "Missing answers data"}), 400
 
-        # Analyze input
+        # Extract data
         student_name = data.get("studentName", "Student")
         answers = data.get("answers", [])
-        career_goal = extract_career_goal(tuple(answers))
         context = f"{data.get('academicInfo', '')} {' '.join(answers)}"
 
-        # Generate detailed reports
-        topics = [
-            'personal_traits', 'skills_excel', 'top_careers',
-            'career_intro', 'career_roadmap', 'career_education',
-            'career_growth', 'indian_colleges', 'global_colleges',
-            'industry_analysis', 'financial_planning'
-        ]
+        # Get career goal
+        career_goal = extract_career_goal(tuple(answers))
         
-        report = {}
-        for topic in topics:
-            report[topic] = generate_topic_report(topic, context, career_goal, student_name)
-            time.sleep(RATE_LIMIT_DELAY)
+        # Generate topic reports
+        report_sections = generate_topic_reports(context, career_goal, student_name)
+        
+        # Build report data
+        report_data = build_report_data(student_name, career_goal, report_sections)
 
-        # Create PDF
+        # Generate PDF
         with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
-            generate_pdf_report({
-                'student_name': student_name,
-                'career_goal': career_goal,
-                'report': report
-            }, tmp.name)
-            return send_file(tmp.name, mimetype='application/pdf', as_attachment=True, download_name=f"{student_name.replace(' ', '_')}_Career_Report.pdf")
+            generate_pdf_report(report_data, tmp.name)
+            return send_file(
+                tmp.name,
+                mimetype='application/pdf',
+                as_attachment=True,
+                download_name=f"{student_name.replace(' ', '_')}_Career_Report.pdf"
+            )
 
     except Exception as e:
         logging.error(f"Endpoint error: {str(e)}")
@@ -1697,4 +2087,3 @@ def generate_report():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=3001, debug=False)
-

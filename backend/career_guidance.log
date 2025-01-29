@@ -300,3 +300,82 @@
 2025-01-27 22:57:04,841 - WARNING: API Error (top_careers attempt 1): 504 Deadline Exceeded
 2025-01-27 22:59:03,788 - WARNING: API Error (global_colleges attempt 1): 500 An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting
 2025-01-27 22:59:53,543 - INFO: 127.0.0.1 - - [27/Jan/2025 22:59:53] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-28 14:34:40,884 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-28 14:34:40,885 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-28 14:40:50,005 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-28 14:40:50,006 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-28 14:44:52,088 - INFO: Gemini API configured successfully
+2025-01-28 14:44:53,452 - WARNING: API Error (attempt 1): 500 An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting
+2025-01-28 14:45:01,280 - WARNING: API Error (personal_traits attempt 1): 500 An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting
+2025-01-28 14:45:53,736 - ERROR: API Error: "Style 'SectionHeader' not found in stylesheet"
+2025-01-28 14:45:53,737 - INFO: 127.0.0.1 - - [28/Jan/2025 14:45:53] "[35m[1mPOST /api/generate-report HTTP/1.1[0m" 500 -
+2025-01-28 15:06:50,941 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-28 15:06:50,942 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-28 15:06:55,005 - INFO: Gemini API configured successfully
+2025-01-28 15:06:57,397 - WARNING: API Error (attempt 1): 500 An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting
+2025-01-28 15:06:59,601 - WARNING: API Error (attempt 2): 500 An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting
+2025-01-28 15:07:03,293 - WARNING: API Error (attempt 3): 500 An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting
+2025-01-28 15:07:52,579 - ERROR: PDF generation error: tuple indices must be integers or slices, not str
+2025-01-28 15:07:52,579 - ERROR: API Error: tuple indices must be integers or slices, not str
+2025-01-28 15:07:52,580 - INFO: 127.0.0.1 - - [28/Jan/2025 15:07:52] "[35m[1mPOST /api/generate-report HTTP/1.1[0m" 500 -
+2025-01-28 15:35:51,299 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-28 15:35:51,299 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-28 15:35:58,054 - INFO: Gemini API configured successfully
+2025-01-28 15:36:56,329 - ERROR: PDF generation error: "Style 'CoverTitle' not found in stylesheet"
+2025-01-28 15:36:56,330 - ERROR: API Error: "Style 'CoverTitle' not found in stylesheet"
+2025-01-28 15:36:56,332 - INFO: 127.0.0.1 - - [28/Jan/2025 15:36:56] "[35m[1mPOST /api/generate-report HTTP/1.1[0m" 500 -
+2025-01-28 15:42:48,895 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-28 15:42:48,896 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-28 15:42:53,609 - INFO: Gemini API configured successfully
+2025-01-28 15:43:11,888 - WARNING: API Error (personal_traits attempt 1): 500 An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting
+2025-01-28 15:43:15,563 - WARNING: API Error (personal_traits attempt 2): 500 An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting
+2025-01-28 15:44:05,414 - ERROR: PDF generation error: "Style 'CoverTitle' not found in stylesheet"
+2025-01-28 15:44:05,415 - ERROR: API Error: "Style 'CoverTitle' not found in stylesheet"
+2025-01-28 15:44:05,416 - INFO: 127.0.0.1 - - [28/Jan/2025 15:44:05] "[35m[1mPOST /api/generate-report HTTP/1.1[0m" 500 -
+2025-01-28 15:46:26,351 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-28 15:46:26,352 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-28 15:46:28,497 - INFO: Gemini API configured successfully
+2025-01-28 15:47:05,096 - WARNING: API Error (top_careers attempt 1): 500 An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting
+2025-01-28 15:48:41,207 - WARNING: API Error (global_colleges attempt 1): 500 An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting
+2025-01-28 15:49:04,606 - WARNING: API Error (financial_planning attempt 1): 500 An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting
+2025-01-28 15:49:19,049 - INFO: 127.0.0.1 - - [28/Jan/2025 15:49:19] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-28 15:59:52,811 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-28 15:59:52,812 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-28 16:00:12,690 - INFO: Gemini API configured successfully
+2025-01-28 16:00:41,156 - WARNING: API Error (skills_excel attempt 1): 500 An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting
+2025-01-28 16:01:13,057 - WARNING: API Error (career_intro attempt 1): 500 An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting
+2025-01-28 16:03:05,913 - WARNING: API Error (global_colleges attempt 1): 504 Deadline Exceeded
+2025-01-28 16:03:44,899 - INFO: 127.0.0.1 - - [28/Jan/2025 16:03:44] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-29 10:31:11,556 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-29 10:31:11,559 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-29 11:31:52,561 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-29 11:31:52,563 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-29 11:32:18,826 - INFO: Gemini API configured successfully
+2025-01-29 11:34:54,503 - INFO: 127.0.0.1 - - [29/Jan/2025 11:34:54] "POST /api/generate-report HTTP/1.1" 200 -
