@@ -925,3 +925,12 @@ NameError: name 'time' is not defined. Did you forget to import 'time'
 2025-01-30 13:36:00,383 - INFO: [33mPress CTRL+C to quit[0m
 2025-01-30 13:36:04,028 - INFO: Gemini API configured successfully
 2025-01-30 13:38:24,052 - INFO: 127.0.0.1 - - [30/Jan/2025 13:38:24] "POST /api/generate-report HTTP/1.1" 200 -
+2025-01-30 13:43:36,477 - INFO: Gemini API configured successfully
+2025-01-30 13:43:38,514 - INFO: Gemini API connection test successful
+2025-01-30 13:43:38,563 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-30 13:43:38,565 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-30 13:44:18,310 - INFO: 127.0.0.1 - - [30/Jan/2025 13:44:18] "[33mPOST /api/generate-report HTTP/1.1[0m" 404 -
+2025-01-30 13:47:11,045 - INFO: 127.0.0.1 - - [30/Jan/2025 13:47:11] "POST /api/submit-assessment HTTP/1.1" 200 -
