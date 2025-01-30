@@ -2019,16 +2019,122 @@
 #         }), 500
 
 # if __name__ == '__main__':
-#     app.run(host='0.0.0.0', port=3001, debug=False)
+#     apfrom flask import Flask, request, jsonify, send_file
+
+from flask import Flask, request, jsonify, send_file
+from flask_cors import CORS
+import tempfile
+import logging
+import json
+import os
+from dotenv import load_dotenv
+from api.gemini_client import setup_gemini_api, generate_content
+from api.prompt_manager import generate_topic_reports
+from api.assessment_manager import AssessmentManager
+from reports.report_builder import build_report_data
+from reports.pdf_generator import generate_pdf_report
+
+# Load environment variables first
+load_dotenv()
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s: %(message)s',
+    handlers=[logging.FileHandler('career_guidance.log'), logging.StreamHandler()]
+)
+
+app = Flask(__name__)
+CORS(app)
+
+# Initialize services
+assessment_manager = AssessmentManager()
+
+# Configure Gemini API on startup
+try:
+    setup_gemini_api()
+except Exception as e:
+    logging.error(f"Failed to initialize Gemini API: {str(e)}")
+    exit(1)
+
+@app.route('/api/submit-assessment', methods=['POST'])
+def submit_assessment():
+    """Handle assessment submission and generate career report."""
+    try:
+        data = request.get_json()
+        
+        if not data or 'answers' not in data:
+            return jsonify({"success": False, "error": "Missing answers data"}), 400
+            
+        # Calculate trait scores
+        trait_scores = assessment_manager.calculate_scores(data['answers'])
+        
+        # Prepare student info
+        student_info = {
+            'name': data.get('studentName', 'Student'),
+            'age': data.get('age', 'Not provided'),
+            'academic_info': data.get('academicInfo', 'Not provided'),
+            'interests': data.get('interests', 'Not provided'),
+            'achievements': [
+                data.get('answers', {}).get('question13', 'None'),
+                data.get('answers', {}).get('question30', 'None')
+            ]
+        }
+        
+        # Generate career prediction
+        prediction_prompt = assessment_manager.get_career_prediction_prompt(
+            trait_scores, 
+            student_info
+        )
+        career_analysis = generate_content(prediction_prompt)
+        
+        # Generate report sections
+        context = f"""
+        Trait Scores: {json.dumps(trait_scores)}
+        Career Analysis: {career_analysis}
+        Student Info: {json.dumps(student_info)}
+        """
+        
+        report_sections = generate_topic_reports(
+            context, 
+            career_analysis.split('\n')[0],
+            student_info['name']
+        )
+        
+        # Build and send PDF report
+        report_data = build_report_data(
+            student_info['name'],
+            career_analysis.split('\n')[0],
+            report_sections
+        )
+        
+        with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
+            generate_pdf_report(report_data, tmp.name)
+            return send_file(
+                tmp.name,
+                mimetype='application/pdf',
+                as_attachment=True,
+                download_name=f"{student_info['name'].replace(' ', '_')}_Career_Report.pdf"
+            )
+
+    except Exception as e:
+        logging.error(f"Assessment submission error: {str(e)}")
+        return jsonify({
+            "success": False,
+            "error": "Assessment processing failed",
+            "details": str(e)
+        }), 500
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=3001, debug=False)
+
+
 # from flask import Flask, request, jsonify, send_file
 # from flask_cors import CORS
 # import tempfile
 # import logging
-# import json
-# from dotenv import load_dotenv
-# from api.gemini_client import setup_gemini_api, generate_content
-# from api.prompt_manager import generate_topic_reports
-# from api.assessment_manager import AssessmentManager
+# from api.gemini_client import setup_gemini_api
+# from api.prompt_manager import extract_career_goal, generate_topic_reports
 # from reports.report_builder import build_report_data
 # from reports.pdf_generator import generate_pdf_report
 # from dotenv import load_dotenv
@@ -2040,68 +2146,36 @@
 # logging.basicConfig(
 #     level=logging.INFO,
 #     format='%(asctime)s - %(levelname)s: %(message)s',
-#     handlers=[logging.FileHandler('career_guidance.log'), logging.StreamHandler()]
+#     handlers=[logging.FileHandler('career_guidance.log'), logging.StreamHandler()],
 # )
 
 # app = Flask(__name__)
 # CORS(app)
 
-# # Initialize assessment manager
-# assessment_manager = AssessmentManager()
-
-# @app.route('/api/submit-assessment', methods=['POST'])
-# def submit_assessment():
-#     """Handle assessment submission and generate career report."""
+# @app.route('/api/generate-report', methods=['POST'])
+# def generate_report():
+#     """Main endpoint with PDF generation."""
 #     try:
+#         setup_gemini_api()
 #         data = request.get_json()
-        
+
 #         if not data or 'answers' not in data:
 #             return jsonify({"success": False, "error": "Missing answers data"}), 400
-            
-#         # Calculate trait scores
-#         trait_scores = assessment_manager.calculate_scores(data['answers'])
-        
-#         # Prepare student info
-#         student_info = {
-#             'name': data.get('studentName', 'Student'),
-#             'age': data.get('age', 'Not provided'),
-#             'academic_info': data.get('academicInfo', 'Not provided'),
-#             'interests': data.get('interests', 'Not provided'),
-#             'achievements': [
-#                 data.get('answers', {}).get('question13', 'None'),
-#                 data.get('answers', {}).get('question30', 'None')
-#             ]
-#         }
-        
-#         # Generate career prediction prompt
-#         prediction_prompt = assessment_manager.get_career_prediction_prompt(
-#             trait_scores, 
-#             student_info
-#         )
-        
-#         # Get career predictions
-#         career_analysis = generate_content(prediction_prompt)
+
+#         # Extract data
+#         student_name = data.get("studentName", "Student")
+#         answers = data.get("answers", [])
+#         context = f"{data.get('academicInfo', '')} {' '.join(answers)}"
+
+#         # Get career goal
+#         career_goal = extract_career_goal(tuple(answers))
         
 #         # Generate topic reports
-#         context = f"""
-#         Trait Scores: {json.dumps(trait_scores)}
-#         Career Analysis: {career_analysis}
-#         Student Info: {json.dumps(student_info)}
-#         """
+#         report_sections = generate_topic_reports(context, career_goal, student_name)
         
-#         report_sections = generate_topic_reports(
-#             context, 
-#             career_analysis.split('\n')[0],  # Use first recommended career
-#             student_info['name']
-#         )
-        
-#         # Build report
-#         report_data = build_report_data(
-#             student_info['name'],
-#             career_analysis.split('\n')[0],
-#             report_sections
-#         )
-        
+#         # Build report data
+#         report_data = build_report_data(student_name, career_goal, report_sections)
+
 #         # Generate PDF
 #         with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
 #             generate_pdf_report(report_data, tmp.name)
@@ -2109,85 +2183,16 @@
 #                 tmp.name,
 #                 mimetype='application/pdf',
 #                 as_attachment=True,
-#                 download_name=f"{student_info['name'].replace(' ', '_')}_Career_Report.pdf"
+#                 download_name=f"{student_name.replace(' ', '_')}_Career_Report.pdf"
 #             )
 
 #     except Exception as e:
-#         logging.error(f"Assessment submission error: {str(e)}")
+#         logging.error(f"Endpoint error: {str(e)}")
 #         return jsonify({
 #             "success": False,
-#             "error": "Assessment processing failed",
+#             "error": "Report generation failed",
 #             "details": str(e)
 #         }), 500
 
 # if __name__ == '__main__':
 #     app.run(host='0.0.0.0', port=3001, debug=False)
-
-
-from flask import Flask, request, jsonify, send_file
-from flask_cors import CORS
-import tempfile
-import logging
-from api.gemini_client import setup_gemini_api
-from api.prompt_manager import extract_career_goal, generate_topic_reports
-from reports.report_builder import build_report_data
-from reports.pdf_generator import generate_pdf_report
-from dotenv import load_dotenv
-
-# Load environment variables
-load_dotenv()
-
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s: %(message)s',
-    handlers=[logging.FileHandler('career_guidance.log'), logging.StreamHandler()],
-)
-
-app = Flask(__name__)
-CORS(app)
-
-@app.route('/api/generate-report', methods=['POST'])
-def generate_report():
-    """Main endpoint with PDF generation."""
-    try:
-        setup_gemini_api()
-        data = request.get_json()
-
-        if not data or 'answers' not in data:
-            return jsonify({"success": False, "error": "Missing answers data"}), 400
-
-        # Extract data
-        student_name = data.get("studentName", "Student")
-        answers = data.get("answers", [])
-        context = f"{data.get('academicInfo', '')} {' '.join(answers)}"
-
-        # Get career goal
-        career_goal = extract_career_goal(tuple(answers))
-        
-        # Generate topic reports
-        report_sections = generate_topic_reports(context, career_goal, student_name)
-        
-        # Build report data
-        report_data = build_report_data(student_name, career_goal, report_sections)
-
-        # Generate PDF
-        with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
-            generate_pdf_report(report_data, tmp.name)
-            return send_file(
-                tmp.name,
-                mimetype='application/pdf',
-                as_attachment=True,
-                download_name=f"{student_name.replace(' ', '_')}_Career_Report.pdf"
-            )
-
-    except Exception as e:
-        logging.error(f"Endpoint error: {str(e)}")
-        return jsonify({
-            "success": False,
-            "error": "Report generation failed",
-            "details": str(e)
-        }), 500
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=3001, debug=False)
