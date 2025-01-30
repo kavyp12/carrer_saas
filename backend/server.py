@@ -2021,12 +2021,14 @@
 # if __name__ == '__main__':
 #     apfrom flask import Flask, request, jsonify, send_file
 
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file, after_this_request
 from flask_cors import CORS
 import tempfile
 import logging
 import json
 import os
+# In server.py, update the imports section:
+from api.prompt_manager import extract_career_goal, generate_topic_reports
 from dotenv import load_dotenv
 from api.gemini_client import setup_gemini_api, generate_content
 from api.prompt_manager import generate_topic_reports
@@ -2064,63 +2066,73 @@ def submit_assessment():
         data = request.get_json()
         
         if not data or 'answers' not in data:
-            return jsonify({"success": False, "error": "Missing answers data"}), 400
+            return jsonify({"error": "Missing answers data"}), 400
             
-        # Calculate trait scores
+        if not isinstance(data['answers'], dict):
+            return jsonify({"error": "Invalid answers format"}), 400
+            
         trait_scores = assessment_manager.calculate_scores(data['answers'])
         
-        # Prepare student info
+        student_name = data.get('studentName', '').strip() or 'Student'
         student_info = {
-            'name': data.get('studentName', 'Student'),
-            'age': data.get('age', 'Not provided'),
-            'academic_info': data.get('academicInfo', 'Not provided'),
-            'interests': data.get('interests', 'Not provided'),
+            'name': student_name,
+            'age': str(data.get('age', 'Not provided')),
+            'academic_info': str(data.get('academicInfo', 'Not provided')),
+            'interests': str(data.get('interests', 'Not provided')),
             'achievements': [
-                data.get('answers', {}).get('question13', 'None'),
-                data.get('answers', {}).get('question30', 'None')
+                str(data.get('answers', {}).get('question13', 'None')),
+                str(data.get('answers', {}).get('question30', 'None'))
             ]
         }
         
-        # Generate career prediction
-        prediction_prompt = assessment_manager.get_career_prediction_prompt(
-            trait_scores, 
-            student_info
-        )
-        career_analysis = generate_content(prediction_prompt)
-        
-        # Generate report sections
+        career_goal = extract_career_goal(list(data['answers'].values()))
+        if not career_goal:
+            return jsonify({"error": "Failed to extract career goal"}), 500
+            
         context = f"""
         Trait Scores: {json.dumps(trait_scores)}
-        Career Analysis: {career_analysis}
         Student Info: {json.dumps(student_info)}
         """
         
         report_sections = generate_topic_reports(
-            context, 
-            career_analysis.split('\n')[0],
+            context.strip(), 
+            career_goal,
             student_info['name']
         )
         
-        # Build and send PDF report
+        if not report_sections:
+            return jsonify({"error": "Failed to generate report sections"}), 500
+            
         report_data = build_report_data(
             student_info['name'],
-            career_analysis.split('\n')[0],
+            career_goal,
             report_sections
         )
-        
-        with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
-            generate_pdf_report(report_data, tmp.name)
-            return send_file(
-                tmp.name,
-                mimetype='application/pdf',
-                as_attachment=True,
-                download_name=f"{student_info['name'].replace(' ', '_')}_Career_Report.pdf"
-            )
+
+        # Create temporary PDF file
+        temp_pdf = tempfile.NamedTemporaryFile(delete=False, suffix=".pdf")
+        temp_pdf.close()  # Close it so the file is accessible
+
+        generate_pdf_report(report_data, temp_pdf.name)
+
+        @after_this_request
+        def cleanup(response):
+            try:
+                os.remove(temp_pdf.name)
+            except Exception as e:
+                logging.error(f"Failed to delete temporary file: {e}")
+            return response
+
+        return send_file(
+            temp_pdf.name,
+            mimetype='application/pdf',
+            as_attachment=True,
+            download_name=f"{student_name.replace(' ', '_')}_Career_Report.pdf"
+        )
 
     except Exception as e:
-        logging.error(f"Assessment submission error: {str(e)}")
+        logging.error(f"Assessment submission error: {str(e)}", exc_info=True)
         return jsonify({
-            "success": False,
             "error": "Assessment processing failed",
             "details": str(e)
         }), 500

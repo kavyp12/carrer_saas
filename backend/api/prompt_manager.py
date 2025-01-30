@@ -1,16 +1,21 @@
+# prompt_manager.py
 import time
 import logging
 from functools import lru_cache
-from .gemini_client import generate_content  # Removed RATE_LIMIT_DELAY import
+from .gemini_client import generate_content
 
-# Define rate limit delay locally
 RATE_LIMIT_DELAY = 2  # Seconds between API calls
 
-@lru_cache(maxsize=128)
 def extract_career_goal(answers):
     """Extract primary career goal from answers."""
+    if not answers:
+        return "Career Exploration"
+        
+    # Convert answers to string if they're not already
+    answers_text = ' '.join(str(answer) for answer in answers if answer)
+    
     prompt = (
-        f"Identify primary career goal from these answers: {' '.join(answers)}\n"
+        f"Identify primary career goal from these answers: {answers_text}\n"
         "Focus on: direct mentions, implied interests, strongest professional direction.\n"
         "Respond ONLY with the career goal name."
     )
@@ -23,6 +28,10 @@ def extract_career_goal(answers):
 
 def get_topic_prompt(topic, student_name, career_goal):
     """Return prompt template for given topic."""
+    # Sanitize inputs
+    student_name = str(student_name).strip()
+    career_goal = str(career_goal).strip()
+    
     prompt_templates = {
         'personal_traits': """Analyze {student_name}'s suitability for {career_goal} (1000+ words):
     1. Core competencies assessment
@@ -126,6 +135,10 @@ def get_topic_prompt(topic, student_name, career_goal):
 
 def generate_topic_reports(context, career_goal, student_name):
     """Generate reports for all topics."""
+    if not all([context, career_goal, student_name]):
+        logging.error("Missing required parameters for report generation")
+        return {}
+        
     topics = [
         'personal_traits', 'skills_excel', 'top_careers',
         'career_intro', 'career_roadmap', 'career_education',
@@ -135,15 +148,29 @@ def generate_topic_reports(context, career_goal, student_name):
     
     reports = {}
     for topic in topics:
-        prompt = get_topic_prompt(topic, student_name, career_goal)
         try:
-            content = generate_content(prompt)
-            reports[topic] = content if content else f"Content generation failed for {topic}"
+            prompt_template = get_topic_prompt(topic, student_name, career_goal)
+            if not prompt_template:
+                logging.warning(f"No template found for topic: {topic}")
+                reports[topic] = "Invalid prompt template"
+                continue
+            
+            formatted_prompt = prompt_template.format(
+                student_name=student_name,
+                career_goal=career_goal
+            )
+            
+            content = generate_content(formatted_prompt)
+            if not content:
+                raise ValueError(f"No content generated for {topic}")
+                
+            reports[topic] = content
+            time.sleep(RATE_LIMIT_DELAY)
+            
         except Exception as e:
-            logging.error(f"Topic generation failed for {topic}: {str(e)}")
-            reports[topic] = f"Report generation failed for {topic}"
-        time.sleep(RATE_LIMIT_DELAY)  # Using locally defined constant
-    
+            logging.error(f"Error generating report for {topic}: {str(e)}")
+            reports[topic] = f"Report generation failed: {str(e)}"
+            
     return reports
 
 

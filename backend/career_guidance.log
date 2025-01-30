@@ -934,3 +934,153 @@ NameError: name 'time' is not defined. Did you forget to import 'time'
 2025-01-30 13:43:38,565 - INFO: [33mPress CTRL+C to quit[0m
 2025-01-30 13:44:18,310 - INFO: 127.0.0.1 - - [30/Jan/2025 13:44:18] "[33mPOST /api/generate-report HTTP/1.1[0m" 404 -
 2025-01-30 13:47:11,045 - INFO: 127.0.0.1 - - [30/Jan/2025 13:47:11] "POST /api/submit-assessment HTTP/1.1" 200 -
+2025-01-30 15:37:08,699 - INFO: Gemini API configured successfully
+2025-01-30 15:37:10,708 - INFO: Gemini API connection test successful
+2025-01-30 15:37:10,720 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-30 15:37:10,721 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-30 15:37:17,995 - INFO: Received assessment submission for student: Jane Smith
+2025-01-30 15:37:17,995 - INFO: Trait scores calculated successfully
+2025-01-30 15:37:17,996 - INFO: Generating career prediction...
+2025-01-30 15:37:33,006 - INFO: Career analysis generated successfully
+2025-01-30 15:37:33,007 - INFO: Generating report sections...
+2025-01-30 15:37:33,008 - INFO: Generating report for topic: personal_traits
+2025-01-30 15:37:43,559 - INFO: Successfully generated report for personal_traits
+2025-01-30 15:37:45,561 - INFO: Generating report for topic: skills_excel
+2025-01-30 15:37:51,324 - INFO: Successfully generated report for skills_excel
+2025-01-30 15:37:53,325 - INFO: Generating report for topic: top_careers
+2025-01-30 15:38:06,997 - INFO: Successfully generated report for top_careers
+2025-01-30 15:38:08,999 - INFO: Generating report for topic: career_intro
+2025-01-30 15:38:16,506 - INFO: Successfully generated report for career_intro
+2025-01-30 15:38:18,508 - INFO: Generating report for topic: career_roadmap
+2025-01-30 15:38:26,277 - INFO: Successfully generated report for career_roadmap
+2025-01-30 15:38:28,279 - INFO: Generating report for topic: career_education
+2025-01-30 15:38:37,107 - INFO: Successfully generated report for career_education
+2025-01-30 15:38:39,108 - INFO: Generating report for topic: career_growth
+2025-01-30 15:38:44,673 - INFO: Successfully generated report for career_growth
+2025-01-30 15:38:46,674 - INFO: Generating report for topic: indian_colleges
+2025-01-30 15:38:47,950 - INFO: Successfully generated report for indian_colleges
+2025-01-30 15:38:49,951 - INFO: Generating report for topic: global_colleges
+2025-01-30 15:38:51,299 - INFO: Successfully generated report for global_colleges
+2025-01-30 15:38:53,301 - INFO: Generating report for topic: industry_analysis
+2025-01-30 15:38:54,644 - INFO: Successfully generated report for industry_analysis
+2025-01-30 15:38:56,646 - INFO: Generating report for topic: financial_planning
+2025-01-30 15:39:02,752 - INFO: Successfully generated report for financial_planning
+2025-01-30 15:39:04,754 - INFO: Report sections generated successfully
+2025-01-30 15:39:04,754 - INFO: Building PDF report...
+2025-01-30 15:39:04,801 - INFO: PDF report generated successfully: C:\Users\kavyp\AppData\Local\Temp\tmpkkfs09q8.pdf
+2025-01-30 15:39:04,817 - INFO: 127.0.0.1 - - [30/Jan/2025 15:39:04] "POST /api/submit-assessment HTTP/1.1" 200 -
+2025-01-30 15:43:40,800 - INFO: Received assessment submission for student: Michael Johnson
+2025-01-30 15:43:40,801 - INFO: Trait scores calculated successfully
+2025-01-30 15:43:40,801 - INFO: Generating career prediction...
+2025-01-30 15:43:59,164 - INFO: Career analysis generated successfully
+2025-01-30 15:43:59,164 - INFO: Generating report sections...
+2025-01-30 15:43:59,165 - INFO: Generating report for topic: personal_traits
+2025-01-30 15:44:08,195 - INFO: Successfully generated report for personal_traits
+2025-01-30 15:44:10,196 - INFO: Generating report for topic: skills_excel
+2025-01-30 15:44:17,891 - INFO: Successfully generated report for skills_excel
+2025-01-30 15:44:19,892 - INFO: Generating report for topic: top_careers
+2025-01-30 15:44:35,014 - INFO: Successfully generated report for top_careers
+2025-01-30 15:44:37,016 - INFO: Generating report for topic: career_intro
+2025-01-30 15:45:02,936 - INFO: Successfully generated report for career_intro
+2025-01-30 15:45:04,937 - INFO: Generating report for topic: career_roadmap
+2025-01-30 15:45:12,049 - INFO: Successfully generated report for career_roadmap
+2025-01-30 15:45:14,050 - INFO: Generating report for topic: career_education
+2025-01-30 15:45:20,499 - INFO: Successfully generated report for career_education
+2025-01-30 15:45:22,499 - INFO: Generating report for topic: career_growth
+2025-01-30 15:45:37,163 - INFO: Successfully generated report for career_growth
+2025-01-30 15:45:39,164 - INFO: Generating report for topic: indian_colleges
+2025-01-30 15:45:40,662 - INFO: Successfully generated report for indian_colleges
+2025-01-30 15:45:42,664 - INFO: Generating report for topic: global_colleges
+2025-01-30 15:45:44,288 - INFO: Successfully generated report for global_colleges
+2025-01-30 15:45:46,290 - INFO: Generating report for topic: industry_analysis
+2025-01-30 15:45:47,732 - INFO: Successfully generated report for industry_analysis
+2025-01-30 15:45:49,734 - INFO: Generating report for topic: financial_planning
+2025-01-30 15:45:51,171 - INFO: Successfully generated report for financial_planning
+2025-01-30 15:45:53,171 - INFO: Report sections generated successfully
+2025-01-30 15:45:53,171 - INFO: Building PDF report...
+2025-01-30 15:45:53,227 - INFO: PDF report generated successfully: C:\Users\kavyp\AppData\Local\Temp\tmph9w5r5jr.pdf
+2025-01-30 15:45:53,250 - INFO: 127.0.0.1 - - [30/Jan/2025 15:45:53] "POST /api/submit-assessment HTTP/1.1" 200 -
+2025-01-30 19:10:13,096 - INFO: Gemini API configured successfully
+2025-01-30 19:10:15,346 - INFO: Gemini API connection test successful
+2025-01-30 19:10:15,457 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-30 19:10:15,459 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-30 19:12:42,598 - INFO: 127.0.0.1 - - [30/Jan/2025 19:12:42] "POST /api/submit-assessment HTTP/1.1" 200 -
+2025-01-30 19:12:44,049 - INFO: 127.0.0.1 - - [30/Jan/2025 19:12:44] "POST /api/submit-assessment HTTP/1.1" 200 -
+2025-01-30 19:42:10,275 - INFO: Gemini API configured successfully
+2025-01-30 19:42:12,233 - INFO: Gemini API connection test successful
+2025-01-30 19:42:12,248 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-30 19:42:12,249 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-30 19:45:41,655 - ERROR: Assessment submission error: name 'extract_career_goal' is not defined
+2025-01-30 19:45:41,657 - INFO: 127.0.0.1 - - [30/Jan/2025 19:45:41] "[35m[1mPOST /api/submit-assessment HTTP/1.1[0m" 500 -
+2025-01-30 19:52:10,459 - INFO: Gemini API configured successfully
+2025-01-30 19:52:12,264 - INFO: Gemini API connection test successful
+2025-01-30 19:52:12,276 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-30 19:52:12,277 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-30 19:52:14,307 - ERROR: Assessment submission error: unhashable type: 'list'
+2025-01-30 19:52:14,308 - INFO: 127.0.0.1 - - [30/Jan/2025 19:52:14] "[35m[1mPOST /api/submit-assessment HTTP/1.1[0m" 500 -
+2025-01-30 19:53:46,492 - INFO: Gemini API configured successfully
+2025-01-30 19:53:48,297 - INFO: Gemini API connection test successful
+2025-01-30 19:53:48,311 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-30 19:53:48,311 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-30 19:53:49,709 - ERROR: Assessment submission error: unhashable type: 'list'
+2025-01-30 19:53:49,710 - INFO: 127.0.0.1 - - [30/Jan/2025 19:53:49] "[35m[1mPOST /api/submit-assessment HTTP/1.1[0m" 500 -
+2025-01-30 19:54:09,675 - ERROR: Assessment submission error: unhashable type: 'list'
+2025-01-30 19:54:09,676 - INFO: 127.0.0.1 - - [30/Jan/2025 19:54:09] "[35m[1mPOST /api/submit-assessment HTTP/1.1[0m" 500 -
+2025-01-30 19:54:23,137 - INFO: Gemini API configured successfully
+2025-01-30 19:54:25,017 - INFO: Gemini API connection test successful
+2025-01-30 19:54:25,029 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-30 19:54:25,030 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-30 19:54:27,821 - ERROR: Assessment submission error: unhashable type: 'list'
+2025-01-30 19:54:27,822 - INFO: 127.0.0.1 - - [30/Jan/2025 19:54:27] "[35m[1mPOST /api/submit-assessment HTTP/1.1[0m" 500 -
+2025-01-30 19:58:17,479 - ERROR: Assessment submission error: unhashable type: 'list'
+2025-01-30 19:58:17,480 - INFO: 127.0.0.1 - - [30/Jan/2025 19:58:17] "[35m[1mPOST /api/submit-assessment HTTP/1.1[0m" 500 -
+2025-01-30 19:58:23,760 - INFO: Gemini API configured successfully
+2025-01-30 19:58:25,513 - INFO: Gemini API connection test successful
+2025-01-30 19:58:25,528 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-30 19:58:25,529 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-30 20:00:58,178 - ERROR: Assessment submission error: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\kavyp\\AppData\\Local\\Temp\\tmp5t3k0x64.pdf'
+Traceback (most recent call last):
+  File "E:\carrer_saas\backend\server.py", line 2130, in submit_assessment
+    os.unlink(tmp.name)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\kavyp\\AppData\\Local\\Temp\\tmp5t3k0x64.pdf'
+2025-01-30 20:00:58,182 - INFO: 127.0.0.1 - - [30/Jan/2025 20:00:58] "[35m[1mPOST /api/submit-assessment HTTP/1.1[0m" 500 -
+2025-01-30 22:36:30,257 - ERROR: Assessment submission error: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\kavyp\\AppData\\Local\\Temp\\tmphklrr3_0.pdf'
+Traceback (most recent call last):
+  File "E:\carrer_saas\backend\server.py", line 2130, in submit_assessment
+    os.unlink(tmp.name)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\kavyp\\AppData\\Local\\Temp\\tmphklrr3_0.pdf'
+2025-01-30 22:36:30,259 - INFO: 127.0.0.1 - - [30/Jan/2025 22:36:30] "[35m[1mPOST /api/submit-assessment HTTP/1.1[0m" 500 -
+2025-01-30 22:49:38,656 - INFO: Gemini API configured successfully
+2025-01-30 22:49:40,770 - INFO: Gemini API connection test successful
+2025-01-30 22:49:40,856 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3001
+ * Running on http://10.10.12.14:3001
+2025-01-30 22:49:40,857 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-30 22:52:21,341 - ERROR: Assessment submission error: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\kavyp\\AppData\\Local\\Temp\\tmprgtf507s.pdf'
+Traceback (most recent call last):
+  File "E:\carrer_saas\backend\server.py", line 2130, in submit_assessment
+    os.unlink(tmp.name)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\kavyp\\AppData\\Local\\Temp\\tmprgtf507s.pdf'
+2025-01-30 22:52:21,350 - INFO: 127.0.0.1 - - [30/Jan/2025 22:52:21] "[35m[1mPOST /api/submit-assessment HTTP/1.1[0m" 500 -
